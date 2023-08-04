@@ -1,0 +1,120 @@
+<div [ngClass]="{'d-block': showContent,'d-none': !(showContent)}">
+
+    <div class="cmnbox" [ngClass]="{'d-block': !isShow,'d-none': isShow}" [formGroup]="propInsTypeForm" id="propertyinurance">
+        <!-- <h3>Property Insurance Type / Structure value</h3> -->
+        <h3>Property Insurance Value/Home Building Value</h3>
+        <div class="innerdiv">
+            <div class="row">
+                <div class="col-xl-7 col-lg-7 form-group">
+                    <h4>What you want to protect
+                        <a href="javascript:void(0)" class="info no-underline" #tooltip="matTooltip"
+                            matTooltip="{{gettooltipTitle(formValues.propInsType)}}" [matTooltipPosition]="'below'"
+                            matTooltipClass="example-tooltip-red"
+                            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                            (click)="tooltip.toggle()"></a>
+                    </h4>
+                    <ul class="iconradio protectRadios">
+                        <li>
+                            <input type="radio" id="propInsType-structure" name="propInsType" value="structure"
+                                [checked]="formValues.propInsType==='structure' ? 'checked': ''"
+                                formControlName="propInsType">
+                            <label for="propInsType-structure">
+                                <img src="assets/image/structure.png" alt="icon">
+                                Home Building</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="propInsType-contents" name="propInsType" value="content"
+                                formControlName="propInsType"
+                                [checked]="formValues.propInsType==='content' ? 'checked': ''">
+                            <label for="propInsType-contents">
+                                <img src="assets/image/contents.png" alt="icon">
+                                Home Content</label>
+                        </li>
+                        <!-- <li [ngClass]="{'d-block': prevFormValues?.formValues.propType=='owned','d-none': !(prevFormValues?.formValues.propType=='owned')}"> -->
+                        <li>
+                            <input type="radio" id="propInsType-both" name="propInsType" value="both"
+                                formControlName="propInsType"
+                                [checked]="formValues.propInsType==='both' ? 'checked': ''">
+                            <label for="propInsType-both">
+                                <img src="assets/image/structcont.png" alt="icon">
+                                Home Building and Content</label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div *ngIf="!(isStrucutureVisible)"> -->
+                <div class="col-lg-5 form-group" *ngIf="!(isStrucutureVisible)">
+                    <h4>Home building value <sup class="mandtory-field">*</sup>
+                        <a href="javascript:void(0)" class="info" #tooltip="matTooltip"
+                            matTooltip="Tip: You can get the value of the structure by multiplying the built up area in Sq. Mtrs. with the cost of construction per Sq. Mtrs.” for example, structure value of a home with 50 sq. Mtrs area and construction cost of Rs. 50,000 sq. Mtrs will be (50 X 50,000) Rs. 25 lacs​"
+                            [matTooltipPosition]="'below'" matTooltipClass="example-tooltip-red"
+                            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                            (click)="tooltip.toggle()"></a>
+                    </h4>
+                    <div class="col-12 row">
+                        <div class="input-field border-btm pt-1 col-md-6 col-12">
+                            <input type="text" id="txtPincode" appCurrencyFormatter class="form-control rupee mt-0"
+                                placeholder="Cost of construction" formControlName="cost_of_construction"
+                                *ngIf="!(isStrucutureVisible)" (input)="getCost()">
+                        </div>
+                        <div class="input-field border-btm pt-1 col-md-6 col-12">
+                            <input type="text" id="txtPincode" class="form-control mt-0"
+                                placeholder="Carpet Area in sq. mtrs" formControlName="carpet_area_in_sq_mtrs"
+                                *ngIf="!(isStrucutureVisible)" (input)="getCost()" appCurrencyFormatter>
+                        </div>
+                        <div class="input-field border-btm pt-1 col-md-6 col-12">
+                            <input type="text" id="txtPincode" class="form-control rupee mt-0"
+                                placeholder="Structure Value" formControlName="structure_value"
+                                style="pointer-events: none;" appCurrencyFormatter>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 form-group" *ngIf="formValues.propInsType == 'structure'">
+                    <h4>Tenure <sup class="mandtory-field">*</sup>
+                    </h4>
+                    <div class="col-12 row">
+                        <div class="input-field pt-1 col-md-6 col-12">
+                            <select id="customerTitle" name="customerTitle" required class="custom-select mt-0"
+                                formControlName='tenure'>
+                                <option class="optionBG" value='' selected disabled>Select</option>
+                                <option class="optionBG" value="5">
+                                    1-5 Years
+                                </option>
+                                <!-- <option class="optionBG" value="10">
+                                    6-10 Years
+                                </option> -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-8 offset-md-2 form-group" *ngIf="!(isStrucutureVisible)">
+          <div class="tipdiv">
+            <p>Tip: You can get the Value of the structure simply by multiplying the built up area with the cost of
+              construction<br>
+              Built Up area/Sq Ft: …………..Cost Of Constriction………………</p>
+          </div>
+        </div> -->
+                <!-- </div> -->
+                <div class="col-12 text-center">
+                    <button type="button" class="cstmbtn mb-4" (click)="submitInsuaranceType()">PROCEED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cmnbox2" [ngClass]="{'d-block': isShow,'d-none': !isShow}">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Property Insurance Type / Home building Value</strong>
+                        <span>Home Building / {{(total || 0) | currency:"₹": "symbol" : "1.0-0"}}</span>
+                        <!-- <span>Structure / ₹ {{(formValues.structure_value || 0)}}</span> -->
+                    </td>
+                    <td>
+                        <a title="Edit" (click)="editInsuaranceType()" class="edit"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+export class PPAPSaveEditCustomerRequest{
+    CustomerID:number;
+   HasAddressChanged:Boolean;
+   SetAsDefault:Boolean;
+   TitleText:string;
+   TitleValue:number;
+   Name:string;
+   DateOfBirth:string;
+   MaritalStatusValue:string;
+   MaritalStatusText:string;
+   OccupationValue:string;
+   OccupationText:string;
+   AnnualIncomeValue:string;
+   AnnualIncomeText:string;
+   IdentityProofValue:string;
+   IdentityProofText:string;
+   IdentityNumber:string;
+   PresentAddrLine1:string;
+   PresentAddrLine2:string;
+   PresentAddrLandmark:string;
+   PresentAddrCityValue:number;
+   PresentAddrCityText:string;
+   PresentAddrStateValue:number;
+   PresentAddrStateText:string;
+   PresentAddrPincodeValue:number;
+   PresentAddrPincodeText:string;
+   EmailAddress:string;
+   MobileNumber:string;
+   LandlineNumber:string;
+   EmailAlternate:string;
+   MobileAlternate:string;
+   PANNumber:string;
+   isPermanentAsPresent:Boolean;
+   PermanentAddrLine1:string;
+   PermanentAddrLine2:string;
+   PermanentAddrLandmark:string;
+   PermanentAddrCityValue:number;
+   PermanentAddrCityText:string;
+   PermanentAddrStateValue:number;
+   PermanentAddrStateText:string;
+   PermanentAddrPincodeValue:number;
+   PermanentAddrPincodeText:string;
+   isGSTINApplicable:false;
+   isUINApplicable:false;
+   GSTDetails:GSTDetails;
+   
+}
+
+export class GSTDetails{
+    GSTIN_NO:string;
+    CONSTITUTION_OF_BUSINESS:string;
+    CUSTOMER_TYPE:string;
+    PAN_NO:string;
+    GST_REGISTRATION_STATUS;
+ }

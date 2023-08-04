@@ -1,0 +1,564 @@
+<div class="cmnbox" [formGroup]="customerDetailsForm">
+    <h3>Customer Details</h3>
+    <div class="innerdiv">
+        <h6 class="ttlLabel">Can you help us with some details?</h6>
+        <div class="row">
+            <div class="col-md-2 col-sm-3 form-group">
+                <div class="input-field">
+                    <label for="customerTitle" class="customer-label">Title <sup class="mandtory-field">*</sup></label>
+                    <select id="customerTitle" name="customerTitle" required class="custom-select"
+                        formControlName='title'>
+                        <option class="optionBG" value='' selected disabled>Select</option>
+                        <option class="optionBG" [value]="title.val" *ngFor='let title of customerTitles'>
+                            {{title.val}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 form-group">
+                <div class="input-field">
+                    <label for="txtCustName" class="customer-label">Name <sup class="mandtory-field">*</sup></label>
+                    <input type="text" id="txtCustName" class="form-control" formControlName="name">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4 form-group">
+                <div class="input-field datePicker">
+                    <label for="txtHypoth" class="customer-label">Date of Birth <sup
+                            class="mandtory-field">*</sup></label>
+                    <mat-form-field class="example-full-width">
+                        <input readonly matInput class="form-control" style="background: none;"
+                            [matDatepicker]="customer_dob_picker" id="customer_dob" [min]="minDate" [max]="maxDate"
+                            name="customer_dob" formControlName="date_of_birth" (click)="customer_dob_picker.open()">
+                        <mat-datepicker-toggle matSuffix [for]="customer_dob_picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #customer_dob_picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtMobile" class="customer-label">Mobile No <sup class="mandtory-field">*</sup></label>
+                    <input type="tel" id="txtMobile" maxlength="10" class="form-control"
+                        formControlName="mobile_number">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtEmail" class="customer-label">Email ID <sup class="mandtory-field">*</sup></label>
+                    <input type="email" id="txtEmail" class="form-control" formControlName="email">
+                </div>
+            </div>
+        </div>
+        <h4 class="text-center proposal-sub-headers">Risk Location Address</h4>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtRiskAdd" class="customer-label">Risk Address <sup
+                            class="mandtory-field">*</sup></label>
+                    <input type="text" id="txtRiskAdd" class="form-control" formControlName="address"
+                        (input)="setAddress($event.target.value)">
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">Pincode <sup class="mandtory-field">*</sup></label>
+                    <input type="tel" id="txtPincode" maxlength="6" class="form-control" formControlName="pincode" (input)="getPincodeDetails($event.target.value)">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">State <sup class="mandtory-field">*</sup></label>
+                    <input type="tel" id="txtPincode" class="form-control" formControlName="state">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">City <sup class="mandtory-field">*</sup></label>
+                    <select class="custom-select" formControlName="city" (change)="getCityList($event)" id="gstCity"
+                        name="gstCity" required>
+                        <option class="optionBG" value='' selected disabled>Select City</option>
+                        <option class="optionBG" *ngFor="let c of cityData" [value]="c.CityName">{{c.CityName}}
+                        </option>
+                    </select>
+                    <!-- <input type="tel" id="txtPincode" class="form-control" placeholder="Enter City" formControlName="city"> -->
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtGSTNo" class="customer-label">GST No </label>
+                    <input type="text" id="txtGSTNo" class="form-control" [(ngModel)]="gst" formControlName="gst" >
+                </div>
+            </div>
+            <!-- <div class="col-md-6 col-sm-6 form-group">
+                <label class="auto_height">Is Communication/Mailing Address same as Insured Address</label>
+                <div class="radioboxdiv">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="isSameAddYes" name="isSameAdd" [checked]='isCorraddSame==true'
+                            (click)="corrFunction(true)" />
+                        <label for="isSameAddYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="isSameAddNo" name="isSameAdd" [checked]='isCorraddSame==false'
+                            (click)="corrFunction(false)" />
+                        <label for="isSameAddNo">No</label>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <h4 class="text-center proposal-sub-headers" *ngIf='!isCorraddSame'>Communication/Mailing Address</h4>
+        <div class="row" *ngIf='!isCorraddSame'>
+            <div class="col-md-6 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtRiskAdd" class="customer-label">Address <sup class="mandtory-field">*</sup></label>
+                    <input type="text" id="txtRiskAdd" class="form-control" placeholder="Enter Address"
+                        formControlName="communication_address" [readonly]='isCorraddSame==true'>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">Pincode <sup class="mandtory-field">*</sup></label>
+                    <input type="tel" id="txtPincode" maxlength="6" class="form-control" placeholder="Enter Pincode"
+                        formControlName="communication_pincode" [readonly]='isCorraddSame==true'
+                        (input)="getPincodeDetailsPer($event.target.value)">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">State <sup class="mandtory-field">*</sup></label>
+                    <input type="tel" id="txtPincode" class="form-control" placeholder="Enter State"
+                        formControlName="communication_state" readonly>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 form-group">
+                <div class="input-field">
+                    <label for="txtPincode" class="customer-label">City <sup class="mandtory-field">*</sup></label>
+                    <input type="text" id="corresCity" name="corresCity" class="form-control" placeholder="Enter City"
+                        formControlName="communication_city" readonly *ngIf='isCorraddSame' />
+                    <select class="custom-select" formControlName="communication_city" (change)="getPerCityList($event)"
+                        id="gstCity" name="gstCity" required *ngIf='!isCorraddSame'>
+                        <option class="optionBG" value='' selected disabled>Select City</option>
+                        <option class="optionBG" *ngFor="let c of appCityListPer" [value]="c.CityName">{{c.CityName}}
+                        </option>
+                    </select>
+                    <!-- <input type="tel" id="txtPincode" class="form-control" placeholder="Enter City" formControlName="city"> -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- <div class="col-12 mt-4 text-center">
+        <button type="button" class="cstmbtn" (click)="submitCustomerDetailsForm()">SUBMIT</button>
+      </div> -->
+    </div>
+</div>
+
+<div class="cmnbox" [formGroup]="customerDetailsForm">
+    <h3>Additional Details</h3>
+    <div class="innerdiv">
+        <h6 class="ttlLabel">Can you help us with some additional details?</h6>
+        <div class="row">
+            <div class="col-md-3 col-sm-4 form-group">
+                <div class="input-field">
+                    <label for="txtHypoth" class="customer-label">Policy Start Date <sup
+                            class="mandtory-field">*</sup></label><br>
+                    <mat-form-field class="example-full-width">
+                        <input readonly matInput class="form-control" style="background: none;"
+                            [matDatepicker]="customer_dob_picker2" id="customer_dob_picker2" [min]="policy_min_date"
+                            [max]="policy_max_date" name="customer_dob_picker2" formControlName="policy_start_date"
+                            (click)="customer_dob_picker2.open()">
+                        <mat-datepicker-toggle matSuffix [for]="customer_dob_picker2"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #customer_dob_picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-5 form-group">
+                <div class="input-field">
+                    <label for="txtCustName" class="customer-label">Financier Name</label>
+                    <input type="text" id="txtCustName" class="form-control" formControlName="financier_name"
+                        placeholder="Enter Financier Name">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-0 form-group" *ngIf="this.flowtype=='NA_CUST' || this.flowtype=='NA_CUSTLINK'">
+            <!-- <input type="checkbox" id="whatsAppDetails" value='isUserAgree' (change)='getDeclarationApproval($event)' formControlName="agree"> -->
+            <input type="checkbox" id="whatsAppDetails" formControlName='whatsAppConsent' value='isWhatsappConsent'
+                (change)='getWhatsappConsent($event)'>
+            <label for="whatsAppDetails" class="auto_height px-2 whatsappConsentText">I wish to get policy related
+                communication
+                on my WhatsApp number &nbsp;<i class="fa fa-whatsapp whatsapp-icon"></i>&nbsp;</label>
+        </div>
+        <div class="col-12 p-0 form-group" *ngIf="this.flowtype=='NA_CUST' || this.flowtype=='NA_CUSTLINK'">
+            <input type="checkbox" id="iAcceptdec1" value='isUserAgree' (change)='getDeclarationApproval($event)'
+                formControlName="agree" >
+            <label for="iAcceptdec" class="auto_height px-2">I accept and agree to the
+                <span class='summary-modal-label' data-bs-toggle="modal" data-bs-target="#terms_condition"  (click)="showTerms()">Terms &amp; Condition</span></label>
+        </div>
+
+        
+        <!-- <div class="col-12 mt-4 text-center">
+            <button type="button" class="cstmbtn mb-4" (click)="submitCustomerDetailsForm()">SUBMIT</button>
+        </div> -->
+
+        <div class="row md-2" *ngIf="isOtpSent==true && isOtpVerified==false && (this.flowtype=='NA_CUST' || this.flowtype=='NA_CUSTLINK')">
+            <div class="col-md-6 offset-md-3" style="text-align: center;">
+                <div class="nput-field1">
+                    <label for="OTPfield">Enter OTP</label>
+                    <input type="text" formControlName="OTPtxt" id="OTPfield" class="form-control" style="text-align: center;"
+                        wtx-context="A17A8004-2C89-4E69-8F98-48391CF49E93" (keyup.enter)="VerifyOtp()">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 13px;" *ngIf="flowtype=='A'">
+            <div class="col-md-12 text-center">
+            <button type="button" *ngIf="isOtpSent != true" id="MAKE_NETBANKING_PAYMENT" class="cstmbtn m-2"
+                (click)="submitCustomerDetailsForm()">Proceed</button>
+            </div>   
+        </div>
+        <div class="row" style="margin-top: 13px;" *ngIf="this.flowtype=='NA_CUST' || this.flowtype=='NA_CUSTLINK'">
+            <div class="col-md-12 text-center">
+                <!-- <button type="button" class="btn trans-btn myfixebtn btn-primary btn-dash noborder"
+                    (click)="NavigateBack()">Back</button> -->
+                <button type="button" *ngIf="isOtpSent != true" id="MAKE_NETBANKING_PAYMENT" class="cstmbtn m-2"
+                    (click)="submitCustomerDetailsForm()">SUBMIT</button>
+                <button type="button" class="cstmbtn m-2" *ngIf="isOtpSent==true && isOtpVerified==false"
+                    (click)="VerifyOtp()">Verify OTP</button>
+                <button type="button" class="cstmbtn m-2 ms-1" *ngIf="isOtpVerified==false && isOtpSent == true"
+                    (click)="SendOTP()">Re-Send OTP</button>
+                <!-- <button type="button" id="MAKE_NETBANKING_PAYMENT" class="cstmbtn m-2" (click)="HFdownloadPdfBiztalk()">Download</button> -->
+            </div>
+        </div>
+      
+    </div>
+</div>
+<!-- <div id="termsAndConditions" class="overlay">
+    <div class="overlay-content">
+        <div class='modal-body-content'>
+            <div class="row maindiv2">
+                <section class="container accordsec">
+                    <div id="accordion">
+                        <div class="cmnbox">
+                            <h3>Terms And Conditions
+                                <button type="button" id="btnPay" class='overlay-close-btn' id="btnPay"
+                                    (click)="closeTerms()">X</button>
+                            </h3>
+                            <div class="innerdiv" style="padding-top: 0px;">
+                                <div data-simplebar="init" id="scrollbar" class="scrollDiv" >
+                                    <div class="faqdiv">
+                                        Any loss or damage to the building/Contents due to any insured perils is covered under Home Building/Content Cover.
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p> Any loss or damage to valuable due to insured perils is covered under the policy.
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Any loss or damage due to leakage and seepage is not covered under the policy.
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Rainfall is not an insured peril and hence is not covered under the policy
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Basement and content there in are not covered under the policy
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        
+                                        <p>Kutcha Construction is excluded under the Policy</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Portable electronic equipment, Generators, Pedal cycle, Cash, automobiles etc, contents lying outside the home premises and content more than 10 years of age are not covered under the policy
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>
+                                            Bifurcation of content into Durables/F&F/Other Contents while sourcing the Content Policy is mandatory
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Building more than 50 years age is excluded from the scope of cover.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Carpet Area in sqmt and Cost of Construction per sqmt is mandatory while sourcing Structure Policies
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Policy is subject to Reinstatement Value Basis for Building and replacement Value Basis for Contents.
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Contents can be covered for mechanical and electrical breakdown up to 20% of content SI maximum INR 5 lacs
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <p>Limit of sum insured for jewellery is 20% of content SI or INR 5 Lacs, whichever is lower.
+                                        </p>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div id="terms_condition" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-orange">
+                <h4 class="modal-title">Terms &amp; Conditions</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms">
+                    <ul>
+                        <li> Any loss or damage to the building/Contents due to any insured perils is covered under Home Building/Content Cover.</li>
+                        <li>Any loss or damage to valuable due to insured perils is covered under the policy.</li>
+                        <li>Any loss or damage due to leakage and seepage is not covered under the policy.
+                        </li>
+                        <li>Rainfall is not an insured peril and hence is not covered under the policy</li>
+                        <li>Basement and content there in are not covered under the policy.
+                        </li>
+                        <li>Kutcha Construction is excluded under the Policy.</li>
+                        <li> Bifurcation of content into Durables/F&F/Other Contents while sourcing the Content Policy is mandatory</li>
+                        <li> Building more than 50 years age is excluded from the scope of cover.</li>
+                        <li>Carpet Area in sqmt and Cost of Construction per sqmt is mandatory while sourcing Structure Policies</li>
+                        <li>Policy is subject to Reinstatement Value Basis for Building and replacement Value Basis for Contents.</li>
+                        <li>Contents can be covered for mechanical and electrical breakdown up to 20% of content SI maximum INR 5 lacs</li>
+                        <li>Limit of sum insured for jewellery is 20% of content SI or INR 5 Lacs, whichever is lower.</li>
+                    </ul>
+
+                    <!-- <div>
+                        <b>Free Look Period:</b> Insured/ Policyholder has a period of 15 days from the date of
+                        receipt
+                        of the Policy document/Certificate of Insurance to review the terms and conditions of this
+                        Policy/Certificate of Insurance. If the Insured/ Policyholder has any objections to any of
+                        the
+                        terms and conditions, he/she have the option of cancelling the Policy/Certificate of
+                        Insurance
+                        stating the reasons for cancellation and in such a case, the Company will refund premium
+                        subject
+                        to ;
+                        <ul>
+                            <li>A deduction of the expenses incurred on stamp duty charges, if the risk has not
+                                commenced. </li>
+                            <li>A deduction of the expenses incurred on stamp duty charges and proportionate risk
+                                premium for period on cover, if the risk has commenced. </li>
+                            <li>A deduction of such proportionate risk premium in commensuration with the risk
+                                covered
+                                during such period, where only a part of risk has commenced. The Policy can be
+                                cancelled
+                                only if there is no claim under the Policy. Free look provision is not applicable
+                                and/or
+                                available at the time of renewal of the Policy. XV. </li>
+                        </ul>
+                    </div>
+
+                    <p class="text-justify">
+                        <b>Cancellation: </b><br>
+                        <b><u>Single Policy/Master Policy- </u></b><br>
+                        The Company may cancel this Policy, by giving 15 days’ notice in writing/e-mail registered
+                        with
+                        us acknowledgment due to the Policyholder at his / their last known address. The Company
+                        shall
+                        exercise its right to cancel only on grounds of mis-representation, fraud, non-disclosure of
+                        material facts, in which case the policy shall be void and all premium paid thereon shall be
+                        forfeited to the Company as per the disclosure to information norm. In case of
+                        non-cooperation
+                        of the Policyholder in implementing the terms and conditions of this Policy the policy shall
+                        be
+                        cancelled and premium shall be refunded on ratable proportion provided that no claim has/is
+                        occurred/reported up to the date of cancellation of this Policy. <br><br>
+                        The Policyholder may also give 15 days’ notice in writing/ e-mail registered with us, to the
+                        Company, for the cancellation of this Policy, in which case the Company shall from the date
+                        of
+                        receipt of notice, cancel the Policy and retain the premium for the period this Policy has
+                        been
+                        in force as opted for by the Policyholder and mentioned in the Renewal & Refund section of
+                        this
+                        Policy. Provided that, refund on cancellation of Policy by the Insured shall be made only if
+                        no
+                        claim has/is occurred/reported up to the date of cancellation of this Policy. The Policy
+                        will
+                        terminate at the expiration of the period for which premium has been paid or on Expiration
+                        Date
+                        shown in the Policy Schedule, whichever is earlier.
+                    </p>
+
+                    <div>
+                        <b><u>Certificate of Insurance</u></b>
+                        <p class="m-0">Each Certificate of Insurance will terminate on the earliest of the following
+                            dates:</p>
+                        <ol>
+                            <li>The date the master Policy is terminated, </li>
+                            <li>The date insured person or Company cancel the Certificate of Insurance. </li>
+                            <li>The date the Insured person ceases to be part of the group unless specified
+                                otherwise.
+                            </li>
+                            <li>The date of Expiry of the Certificate </li>
+                            <li>Instalment premium is not received during a 15 Days Grace period. </li>
+                        </ol>
+                        <p>The Company may cancel this Certificate of Insurance, by giving 15 days’ notice in
+                            writing/
+                            e-mail acknowledgment due to the Insured at his / their last known address. The Company
+                            shall exercise its right to cancel only on grounds of mis-representation, fraud,
+                            non-disclosure of material facts of the Insured/ Insured Person in which case the
+                            Certificate of Insurance shall be void and all premium paid thereon shall be forfeited
+                            to
+                            the Company as per the disclosure to information norm. </p>
+                        <p>In case of non-cooperation of the Insured/Insured Person(s) in implementing the terms and
+                            conditions of this Policy the policy shall be cancelled and premium shall be refunded on
+                            ratable proportion provided that no claim has/is occurred/reported up to the date of
+                            cancellation of this Policy The Insured may also give 15 days’ notice in writing, to the
+                            Company, for the cancellation of this Certificate of Insurance, in which case the
+                            Company
+                            shall from the date of receipt of notice, cancel the Certificate of Insurance and retain
+                            the
+                            premium for the period this Certificate of Insurance has been in force, as opted for by
+                            the
+                            Policyholder and mentioned in the Renewal & Refund section of this Policy. </p>
+                        <p>Provided that, refund on cancellation of Certificate of Insurance by the Insured shall be
+                            made only if no claim has/is occurred/reported up to the date of cancellation of this
+                            Certificate of Insurance </p>
+                        <p><b>Territorial Limits/Currency of payment:</b> The coverage under each of the sections of
+                            the
+                            policy shall be restricted to the Territorial limits as specified in the Schedule. All
+                            claims shall be payable in India in Indian Rupees only</p>
+                    </div>
+
+                    <div class="pt-2">
+                        <h5><b>Key details about policy coverage :</b></h5>
+                        <p><b>ACCIDENTAL DEATH</b><br>
+                            If any Insured Person sustains Injury during the policy period which directly and
+                            independently of all other causes result in death within 12 Months from the date of
+                            accident, the company agrees to pay to the Insured Person’s Nominee, Beneficiary or
+                            legal
+                            representative, the Sum Insured specified in the Schedule/Certificate of Insurance.</p>
+                        <p><b>PERMANENT TOTAL DISABLEMENT (PTD)</b><br>
+                            If any Insured Person sustains Injury during the policy period which directly and
+                            independently of all other causes result in any of the disablement stated in the table
+                            below
+                            and opted for by the Policyholder/Insured Person as indicated in the Policy
+                            Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                            company agrees to pay to the Insured Person, Refer policy wording for table of Sum
+                            insured.
+                        </p>
+                        <p><b>PERMANENT PARTIAL DISABLEMENT (PPD)</b><br>
+                            If any Insured Person sustains Injury during the policy period which directly and
+                            independently of all other causes result in any of the disablement stated in the table
+                            below
+                            and opted for by the Policyholder/Insured Person as indicated in the Policy
+                            Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                            company agrees to pay to the Insured Person.</p>
+                        <p><b>IN-HOSPITAL MEDEX (INPATIENT) </b><br>
+                            If any Insured Person sustains Injury during the Policy Period and is hospitalized as an
+                            In-patient, then the Company shall reimburse the Insured Person all necessary Usual and
+                            Reasonable In-Hospital Medical Expenses, incurred immediately after the Date of Accident
+                            insured under the policy up to the amount specified in the Schedule, subject to the
+                            Co-Payment/Deductible/Franchise and Terms and Conditions of this Policy.
+                            <br>In-Hospital Medical Expenses shall include Room, ICU & Boarding expenses, Medical
+                            Practitioner’s fees, Surgeon’s Fees, Nursing Charges, X-Ray, laboratory & charges,
+                            prescribed drugs and medicines, therapeutics, anesthetics (including administration of
+                            anesthetics), blood transfusions.
+                        </p>
+                        <p><b>HOSPITAL CASH</b><br>
+                            If any Insured Person sustains injury during the Policy period that requires
+                            hospitalization
+                            as In-Patient, The Company shall pay a daily allowance for each continuous and completed
+                            period of 24 hours not exceeding maximum number of days and subject to
+                            Deductible/Franchise
+                            specified in the Schedule.
+                        </p>
+                        <div>
+                            <p><b>HOME & VEHICLE MODIFICATION</b><br>
+                                If any Insured Person sustains Injury during the Policy Period which directly and
+                                independently of all other causes results in Permanent Disablement (Partial or
+                                Total)
+                                within twelve months from the Date of Accident, then the Company agrees to reimburse
+                                cost of modification done on home and vehicle following an accidental bodily injury
+                                subject to Co-Payment/deductible/franchise and maximum amount specified in the
+                                Schedule.
+                                Such modification should be medically necessary for easy movement of the insured to
+                                exhibit the routine daily activities.<br>
+                                The modifications made to the Home and Vehicle should be compliant with the
+                                applicable
+                                laws in India.
+                            </p>
+
+                            <p>
+                                The liability of the Company arises only if there is a payable claim under Permanent
+                                Disablement (Partial or Total) opted for by the Insured/Policyholder and
+                                specifically
+                                covered under the policy schedule/Certificate of Insurance.<br>
+                                In case this benefit has been opted on standalone basis, the admissibility of the
+                                claim
+                                under this section shall be determined based on the admissibility of claim under
+                                Permanent Disablement (Partial or Total) had the same been covered under the
+                                policy.<br>
+                                Compensation payable under this section shall be independent to compensation payable
+                                under Permanent Disablement (Partial or Total).<br>
+
+                            </p>
+                            <p class="m-0">In this benefit: </p>
+                            <ul>
+                                <li>The maximum payment made to the workshop/contractor as cash payment shall not
+                                    exceed
+                                    the maximum limit as allowed by the regulations. </li>
+                                <li>If cost of modification under any of Home/Vehicle exceeds INR. 2 Lacs, the
+                                    payment
+                                    to the workshop/contractor should be made through payment modes other than cash.
+                                </li>
+                                <li>Cost of Modification of Home including raw material and labour work shall not
+                                    exceed
+                                    INR. 200 per square feet for Metro and INR. 150 per square feet for Non Metros.
+                                </li>
+                                <li>Purchase of new vehicle or home is not covered.</li>
+                            </ul>
+                        </div>
+
+                        <p><b>COMMON CARRIER</b><br>
+                            The Company agrees to pay fixed Compensation as specified in the schedule in the event
+                            of
+                            Accidental Death or Permanent Total Disablement whilst travelling in a Common
+                            Carrier.<br><br>
+                            In this benefit:<br>
+                            Common Carrier means any air conveyance operated under a license issued by a
+                            governmental
+                            authority having jurisdiction, for the transportation of fare paying passengers and
+                            which
+                            has fixed, established routes only.<br><br>
+                            The liability of the Company arises only if there is a payable claim under Accidental
+                            Death
+                            or Permanent Total Disablement opted for by the Insured/Policyholder and specifically
+                            covered under the policy schedule/Certificate of Insurance.<br>
+                            In case this benefit has been opted on standalone basis, the admissibility of the claim
+                            under this section shall be determined based on the admissibility of claim under
+                            Accidental
+                            Death or Permanent Total Disablement had the same been covered under the policy.<br><br>
+                            Compensation payable under this section shall be independent to compensation payable
+                            under
+                            Accidental Death or Permanent Total Disablement.
+
+                        </p>
+                    </div> -->
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-dash bg-blue noborder mt-1"
+                        data-bs-dismiss="modal">OK</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

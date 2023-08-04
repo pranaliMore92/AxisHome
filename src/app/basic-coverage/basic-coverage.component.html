@@ -1,0 +1,34 @@
+<div class="cmnbox" [hidden]="isShow">
+    <h3 (click)="toggle()">
+        <!-- Basic Coverage Highlights -->
+        What you are protected against
+        <!-- <a href="javascript:void(0)" class="info" data-toggle="tooltip" title="" data-original-title="Hooray!"></a> -->
+    </h3>
+    <div class="innerdiv pr-0 pb-0 pl-0">
+        <ul class="covrHighlts">
+            <!-- <li *ngFor="let addon of masterData.BasicCvrDetails" [ngClass]="{'d-none': !addon.isVisible}"> -->
+            <li *ngFor="let addon of masterData.BasicCvrDetails">
+                <a class="info no-underline" #tooltip="matTooltip" matTooltip="{{addon.ToolTip}}"
+                    [matTooltipPosition]="'below'" (click)="tooltip.toggle()" matTooltipClass="example-tooltip-red">
+                    <div class="imgdiv">
+                        <img src="assets/image/{{addon.ImageName}}" alt="icon">
+                    </div>
+                    <span>{{addon.Name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="cmnbox2" [hidden]="!isShow" (click)="toggle()">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Basic Coverage Highlights</strong>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

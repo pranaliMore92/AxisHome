@@ -1,0 +1,62 @@
+<section class="container-fluid mainsec">
+    <div class="row">
+        <div class="container">
+            <div class="cmnbox mt-5">
+                <h3>Please Enter your Details</h3>
+                <div class="innerdiv">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <div class="input-field">
+                                <label for="txtName">Full Name <sup>*</sup></label>
+                                <input id="txtName" [(ngModel)]="userModel.CustName" (keyup.enter)="saveUserDetails()"
+                                    class="form-control" type="text" style="text-transform:none" autocomplete="off">
+                                <span class="errortext">{{error.Nameerr}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <div class="input-field">
+                                <label for="txtMobile">Mobile Number <sup>*</sup></label>
+                                <input id="txtMobile" appOnlyNumeric [(ngModel)]="userModel.MobileNo" maxlength="10"
+                                    (keyup.enter)="saveUserDetails()" class="form-control" type="text"
+                                    autocomplete="off">
+                                <span class="errortext">{{error.MobileNoerr}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <div class="input-field">
+                                <label for="txtEmail">Email Address <sup>*</sup></label>
+                                <input id="txtEmail" [(ngModel)]="userModel.Email" (keyup.enter)="saveUserDetails()"
+                                    class="form-control" type="text" autocomplete="off">
+                                <span class="errortext">{{error.Emailerr}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <div class="cover-value mb-3 mt-3">
+                                <div class="row cover-1 align-items-center">
+                                    <div class="col-lg-1 col-md-1 col-1 text-left">
+                                        <label for="whatsappinout" class="switch">
+                                            <input type="checkbox" (click)="toggleWhatsappinout()"
+                                                [(ngModel)]="WhatsappConcent" id="whatsappinout" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-11 col-md-11 col-11 text-left">
+                                        <p class="personal-cover personal-cover-enabled"
+                                            (click)="toggleWhatsappinout()">
+                                            I wish to get policy related communication on my <i
+                                                class="fa fa-whatsapp"></i> WhatsApp number.
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <button type="button" class="cstmbtn my-3 mt-sm-4"
+                                (click)="saveUserDetails()">PROCEED</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

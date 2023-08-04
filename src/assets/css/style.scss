@@ -1,0 +1,789 @@
+$primary_font: 'Muli', sans-serif;
+
+@mixin box-shadow($left, $top, $radius, $color) {
+	box-shadow: $left $top $radius $color;
+	-webkit-box-shadow: $left $top $radius $color;
+	-moz-box-shadow: $left $top $radius $color;
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+	transition: $property $duration $easing;
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+body {
+  padding-top: 56px;
+  font-family: $primary_font !important;
+  overflow-x: hidden;
+}
+
+/*Header Starts*/
+
+header {
+  background-image: linear-gradient(to bottom, #ee7000, #d12500);
+
+  h1 {
+    margin: 0;
+    display: inline-block;
+
+    a {
+      width: 154px;
+      height: auto;
+      padding: 4px 0;
+      display: inline-block;
+      background: url(../images/logo.png) no-repeat center center/contain;
+      text-indent: -9999px;
+    }
+  }
+}
+
+/*Header Ends*/
+
+.cstmbtn {
+  min-width: 200px;
+  padding: 10px 25px;
+  border: 0;
+  margin-bottom: 2px;   
+  @include border-radius(10px);
+  display: inline-block;
+  background-color: #ff8500;
+  @include box-shadow(0, 3px, 3px, 0 rgba(0, 0, 0, 0.25));
+  color: #fff;
+  font: 600 16px $primary_font;
+  outline: 0 !important;
+  text-decoration: none;
+  @include transition(all, 0.2s, ease);
+
+  &:active {
+    @include box-shadow(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+.intorsec {
+  padding: 25px 15px;
+  background-color: #003d59;
+
+  h2 {
+    color: #fff;
+    font: 300 30px $primary_font;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  p {
+    color: #fff;
+    font: 400 16px/24px $primary_font;
+  }
+}
+
+.mainsec {
+  .planSec {
+    padding: 0;
+    margin: 5px 0 10px;
+    text-align: center;
+  
+    li {
+      margin: 8px;
+      display: inline-block;      
+  
+      .innerdiv {
+        width: 310px;
+        height: 140px;
+        border: 1px solid rgba(112, 112, 112, 0.5);
+        @include border-radius(10px);
+        background-color: #fff;
+        text-align: left;
+  
+        h5 {
+          padding: 10px 7px 10px 14px;
+          margin: 0;
+          @include border-radius(7px 7px 0 0);
+          background-color: #707070;
+          color: #fff;
+          font: 600 17px $primary_font;
+          text-align: left;
+  
+          span {
+            padding: 5px 15px;
+            margin-top: -4px;
+            @include border-radius(5px);
+            background-color: #fff;
+            color: #707070;
+            font: bold 14px $primary_font;
+          }
+        }
+  
+        .maincont {
+          padding: 8px 20px 12px;
+  
+          span {
+            margin-bottom: 3px;
+            display: block;
+            color: #6f6f6f;
+            font: 600 16px $primary_font;
+          }
+  
+          h6 {
+            padding-left: 30px;
+            margin: 0;
+            display: inline-block;
+            background: url(../images/rupee.png) no-repeat left center;
+            color: #383838;
+            font: 800 42px $primary_font;
+          }
+        }
+      }
+  
+      &.active {
+        .innerdiv {
+          border: 1px solid #db6d18;
+  
+          h5 {
+            background-color: #db6d18;
+  
+            span {
+              color: #9e2626;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .subhead {
+    padding: 10px 25px;
+    @include border-radius(20px);
+    background-color: #efefef;
+    color: #383838;
+    font: 700 18px $primary_font;
+  }
+
+  .addremdiv {
+    text-align: center;
+  
+    input {
+      display: none;
+  
+      &:checked + label {
+        &::before {
+          background: #982222 url(../images/tick-white.png) no-repeat center center/16px;
+        }
+  
+        span::before {
+          content: 'Added';
+        }
+      }
+    }
+  
+    label {
+      margin: 0;
+      cursor: pointer;
+  
+      &::before {
+        content: '';
+        width: 35px;
+        height: 35px;
+        border: solid 2px #982222;
+        @include border-radius(10px);
+        display: inline-block;
+        background: url(../images/add.png) no-repeat center center/16px;
+        vertical-align: top;
+      }
+  
+      span {
+        display: block;
+  
+        &::before {
+          content: 'Add';
+          color: #982222;
+          font: 500 12px $primary_font;
+          vertical-align: sub;
+        }
+      }
+    }
+  }
+
+  .allbenfts {
+    padding: 0;
+    margin: 5px 0 10px;
+    display: table;
+  
+    li {
+      width: 50%;
+      padding: 5px;
+      display: inline-table;
+      vertical-align: top;
+  
+      .innerdiv {
+        padding: 20px 40px 20px 10px;
+        border: solid 1px rgba(149, 32, 32, 0.4);
+        @include border-radius(10px);
+        background-color: #ffffff;
+  
+        table {
+          width: 100%;
+          
+          tr {
+            td {
+              padding: 0 10px;
+              vertical-align: top;
+  
+              h6 {
+                margin: 0 0 3px;
+                color: #383838;
+                font: 700 14px $primary_font;
+              }
+  
+              img {
+                width: 35px;
+              }
+  
+              p {
+                width: 100%;
+                min-height: 50px;
+                margin: 0;
+                color: #383838;
+                font: 400 14px $primary_font;
+  
+                a {
+                  margin-top: 7px;
+                  display: block;
+                  color: #9e2626;
+                  font: 700 12px $primary_font;
+                  text-align: right;
+                  text-decoration: none;
+                }
+              }
+  
+              &:first-child {
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    &.allbenfts2 {
+      li .innerdiv table tr {
+        td {
+          vertical-align: middle;
+  
+          &:first-child {
+            width: 65px;
+          }
+        }
+      }
+    }
+  }
+
+  .fieldsdiv {
+    padding: 15px 40px 0;
+    border: solid 1px #d5d5d5;
+    margin: 15px 0 30px;
+    @include border-radius(10px);
+    background-color: #fff;
+    @include box-shadow(0, 3px, 6px, 0 rgba(119, 119, 119, 0.5));
+
+    label {
+      color: #043b6d;
+      font: 600 16px $primary_font;
+    }
+
+    input {
+      padding-left: 0;
+      border: 0;
+      border-bottom: 1px solid #d5d5d5;
+      @include border-radius(0);
+      background-color: #fff;
+      @include box-shadow(0, 0, 0, 0);
+      color: #4b4b4b;
+      font: 600 22px $primary_font;
+
+      &.rupee {
+        padding-left: 12px !important;
+        background: #fff url(../images/rupee.png) no-repeat left center/11px;
+      }
+
+      &:disabled {
+        height: auto;
+        padding: 0;
+        border: 0;
+      }
+    }
+
+    .bgcolor {
+      padding: 15px 0 0;
+      @include border-radius(9px);
+      background-color: #efefef;
+
+      input {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .ttlpremdiv {
+    padding: 12px 22px;
+    margin-bottom: 20px;
+    @include border-radius(10px);
+    background-color: #003d59;
+
+    table {
+      width: 100%;
+      margin: 0;
+
+      tr {
+        td {
+          color: #fff;
+          font: 600 24px $primary_font;
+          vertical-align: middle;
+  
+          span {
+            padding-left: 15px;
+            background: url(../images/rupee-white.png) no-repeat left center/13px;
+            color: #fff;
+            font: 600 24px $primary_font;
+          }
+        }
+      }
+    }
+
+    &.brder {
+      border: solid 1px #CEA797;
+    }
+  }
+
+  .congratsDiv {
+    border: 1px solid #fff;
+    @include border-radius(10px);
+    background-color: #fff;
+    @include box-shadow(0, 3px, 6px, 0 rgba(0, 0, 0, 0.16));
+    overflow: hidden;
+
+    .congratulations {
+      padding: 15px;
+      @include border-radius(10px);
+      background-color: #003d59;
+      text-align: center;
+
+      h4 {
+        margin: 0;
+        color: #fff;
+        font: 700 22px $primary_font;
+      }
+
+      span {
+        color: #fff;
+        font: 600 16px $primary_font;
+      }      
+    }
+
+    .fildsdiv {
+      padding: 24px;
+
+      label {
+        margin-bottom: 3px;
+        display: block;
+        color: #939393;
+        font: 400 14px $primary_font;
+      }
+
+      span {
+        display: block;
+        color: #262626;
+        font: 600 18px $primary_font;
+      }
+
+      .premTable {
+        padding: 25px;
+        margin-top: 8px;
+        @include border-radius(10px);
+        background-color: #ededed;
+
+        table {
+          width: 100%;
+
+          tr td {
+            color: #003d59;
+            font: 700 14px $primary_font;
+            vertical-align: middle;
+
+            span {
+              padding-left: 18px;
+              display: inline;
+              background: url(../images/rupee-blue.png) no-repeat left center/18px;
+              color: #063b6d;
+              font: 700 23px $primary_font;
+            }
+          }
+        }
+      }
+
+      a.download {
+        width: 53px;
+        height: 53px;
+        margin-top: 20px;
+        display: inline-block;
+        background: url(../images/download.png) no-repeat center center/contain;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.paymentmode {
+  h3 {
+    padding: 0 22px;
+    margin: 0 0 20px;
+    color: #fff;
+    font: 300 22px $primary_font;
+  }
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+
+    li {
+      margin: 15px;
+      display: inline-block;
+      vertical-align: top;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+
+        div {
+          width: 90px;
+          height: 90px;
+          margin: 0 auto;
+          @include border-radius(10px);
+          position: relative;
+          background-color: #ffffff;
+          @include box-shadow(0, 3px, 6px, 0 rgba(0, 0, 0, 0.51));
+          @include transition(box-shadow, 0.3s, ease-in);
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        span {
+          margin-top: 10px;
+          display: inline-block;
+          color: #fff;
+          font: 500 14px $primary_font;
+        }
+
+        &:active {
+          div {
+            @include box-shadow(0, 0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.benfitsec {
+  padding: 28px 15px;
+  background-color: #efefef;
+
+  .subhead {
+    padding: 10px 25px;
+    @include border-radius(20px);
+    background-color: #003d59;
+    color: #fff;
+    font: 700 18px $primary_font;
+  }
+
+  .benftable {
+    table {
+      width: 100%;
+
+      tr {
+        td {
+          padding-right: 10px;
+          vertical-align: top;
+
+          ul {
+            min-width: 260px;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            @include border-radius(10px);
+            background-color: #fff;
+            list-style-type: none;
+
+            li {
+              height: 46px;
+              border-bottom: 1px solid #efefef;
+
+              h6 {
+                padding: 11px 24px;
+                margin: 0;
+                color: #383838;
+                font: 600 18px $primary_font;
+              }              
+
+              &.yes {
+                background: url(../images/checked.png) no-repeat center center/18px;
+              }
+
+              &.no {
+                background: url(../images/close.png) no-repeat center center/15px;
+              }
+
+              &:last-child {
+                border-bottom: 0;
+              }
+            }
+          }
+
+          p {
+            padding: 25px 22px;
+            margin: 0;
+            @include border-radius(10px);
+            background-color: #fff;
+            color: #707070;
+            font: 400 14px/23px $primary_font;
+          }
+
+          .premDiv {
+            padding: 15px;
+            margin-bottom: 10px;
+            @include border-radius(10px);
+            background-color: #fff;
+            text-align: center;
+
+            small {
+              margin-bottom: 5px;
+              display: block;
+              color: #6f6f6f;
+              font: 700 12px $primary_font;
+            }
+
+            span {
+              padding-left: 25px;
+              background: url(../images/rupee.png) no-repeat left center/17px;
+              color: #383838;
+              font: 800 30px $primary_font;
+            }
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+
+        &:last-child {
+          td {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:767px) {
+  .mainsec {
+    .planSec {
+      margin: 0 0 10px;
+  
+      li {
+        width: 100%;
+        margin: 10px 0;
+    
+        .innerdiv {
+          width: 100%;
+          height: auto;      
+        }
+      }
+    }
+
+    .allbenfts li {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width:575px) {
+  header {
+    text-align: center;
+
+    h1 {
+      a {
+        width: 140px;
+      }
+    }
+  }
+
+  .intorsec {
+    h2 {
+      font-size: 25px;
+    }
+  
+    p {
+      margin: 0;
+      font: 400 13px/22px $primary_font;
+    }
+  }
+
+  .cstmbtn {
+    min-width: 115px;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .mainsec {
+    .planSec li {
+      .innerdiv {
+        h5 {
+          font-size: 13px;
+  
+          span {
+            margin-top: -4.5px;
+            font-size: 11px;
+          }
+        }
+  
+        .maincont {
+          padding: 8px 15px 12px;
+  
+          h6 {
+            padding-left: 20px;
+            font-size: 30px;
+            background-size: 15px;
+          }
+        }
+      }
+    }
+
+    .subhead {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .fieldsdiv {
+      padding: 15px 25px 0;
+
+      label {
+        font-size: 14px;
+      }
+
+      input {
+        font-size: 16px;
+
+        &.rupee {
+          background-size: 9px;
+        }
+      }
+    }
+
+    .ttlpremdiv table tr td {
+      font-size: 17px;
+
+      span {
+        padding-left: 12px;
+        background-size: 9px;
+        font-size: 17px;
+      }
+    }
+  }
+
+  .benfitsec {
+    .subhead {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .benftable table tr td p {
+      font: 400 13px/21px "Muli", sans-serif;
+    }
+  }
+
+  .paymentmode {
+    h3 {
+      text-align: center;
+    }
+
+    ul li {
+      margin: 10px;
+  
+      a {
+        div {
+          width: 80px;
+          height: 80px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .card-body {
+    background-color: #fff;
+
+    p {
+      margin: 0 0 15px;
+      color: #4a4a4a;
+      font: 400 16px $primary_font;
+    }
+
+    ul {
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 10px;
+        color: #4a4a4a;
+        font: 400 16px $primary_font;
+
+        a {
+          color: #DC6D18;
+        }
+      }
+    }
+  }
+}

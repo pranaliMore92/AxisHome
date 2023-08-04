@@ -1,0 +1,938 @@
+<section class="plr-mob20">
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-md-12 p-0 card_layout pt0 ">
+                <div class="row mb10">
+                    <div class="text-left p-0">
+                        <div class="head-title ">
+                            <b class="custompaneltitle">Premium Summary</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="mycard box_card pt0 form-group covers">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 pr-detail">
+                            <h5>Basic Premium</h5>
+                            <p id="GPA"><i class="fa fa-inr"></i> {{ADPSummaryDetailsResponse.BasicPremium |
+                                number:'1.0-0'}}</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 pr-detail">
+                            <h5>GST</h5>
+                            <p id="summ_basic_premium"><i class="fa fa-inr"></i> {{ADPSummaryDetailsResponse.GST |
+                                number:'1.0-0'}}
+                        </div>
+                        <div class="col-lg-4 col-md-4 pr-detail">
+                            <h5>Total Premium Payable</h5>
+                            <p id="summ_total_premium">
+                                <span class="">
+                                    <i class="fa fa-inr"></i>
+                                    <!-- {{GPA}} -->
+                                    {{ADPSummaryDetailsResponse.TotalPremium | number:'1.0-0'}}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- summary section -->
+<section class="mt-3 accord prop container">
+    <div class="wrapper center-block">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="bg-off panel panel-default">
+                <div class="panel-heading" role="tab" id="headingzero">
+                    <h4 class="panel-title">
+                        <a id="togCust" role="button" aria-expanded="false" aria-controls="collapsezero">
+                            Select Property Type
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body row ms-0 me-0 text-left padtp25">
+
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="title">Property Type </label>
+                                <input type="text" placeholder="Title*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.PropertyType" class="form-control font16"
+                                    id="title" name="txtCustName" maxlength="100" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="customer_name2">Property Pincode</label>
+                                <input type="text" placeholder="Customer Name*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.PropertyPinCode" class="form-control font16"
+                                    id="txtCustName" name="txtCustName" maxlength="100" disabled />
+                               
+                            </div>
+                        </div>
+                        
+                       
+
+                        
+
+                        <hr style="margin-top: 1rem;" />
+
+
+                        <div class="col-md-12 text-left">
+                            <h4 class="color-orange subhead-title">Property Insurance Value/Home Building Value</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating" id="dvCustAddress">
+                                <label for="txtAddress">Property Value</label>
+                                <input type="text" placeholder="PropertyValue*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.PropertyValue" id="txtAddress"
+                                    class="form-control font16" name="txtAddress" autocomplete="off" disabled />
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating" id="dvCustPincode">
+                                <label for="txtPincode">Cost Of Construction</label>
+                                <input type="text" [(ngModel)]="ADPSummaryDetailsResponse.CostOfConstruction"
+                                    placeholder="Pincode" appOnlyNumeric id="txtPincode" class="form-control font16"
+                                    name="txtPincode" maxlength="6" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="ddState">Carpet Area</label>
+                                <input type="text" placeholder="Select State*"
+                                    [value]="ADPSummaryDetailsResponse.CarpetArea " id="txtState"
+                                    class="form-control font16" name="txtState" autocomplete="off" disabled />
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="ddCity">Structure Value</label>
+                                <input type="text" placeholder="StructureValue*"
+                                    [value]="ADPSummaryDetailsResponse.StructureValue " id="txtState"
+                                    class="form-control font16" name="txtState" autocomplete="off" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="ddCity">Tenure</label>
+                                <input type="text" placeholder="StructureValue*"
+                                    [value]="ADPSummaryDetailsResponse.PolicyTenure " id="txtState"
+                                    class="form-control font16" name="txtState" autocomplete="off" disabled />
+                                
+                            </div>
+                        </div>
+
+
+                       
+                            <!-- <div class="col-md-4">
+                                <div class="form-group form-floating">
+
+                                    <input id="txtNomiDOB" placeholder="Date of Birth"
+                                        [value]="ADPSummaryDetailsResponse.NomineeDOB | date:'dd/MM/yyyy'" disabled
+                                        class="form-control">
+                                    <label for="txtNomiDOB">Date Of Birth</label>
+
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-md-4">
+                                <div class="form-group form-floating ">
+                                    <input id="txtNomiDOB" placeholder="Relationship"
+                                        [value]="ADPSummaryDetailsResponse.NomineeRelation | titlecase" disabled
+                                        class="form-control">
+                                    <label for="ddNomRel">Nominee Relationship</label>
+                                </div>
+                            </div> -->
+                        </div>
+                        <hr style="margin-top: 1rem;" />
+                        <!-- <div class="row p-0 ms-0 me-0" ngDefaultControl>
+                            <div class="col-md-12 text-left">
+                                <h4 class="color-orange subhead-title">Cover Details</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-floating">
+                                    <input type="text" [(ngModel)]="ADPSummaryDetailsResponse.CoverDetails"
+                                        placeholder="Nominee Name*" id="txtNomineeName" class="form-control font16"
+                                        name="txtNomineeName" maxlength="100%" disabled />
+                                    <label for="txtNomineeName">Cover Details</label>
+                                </div>
+                            </div>
+
+                    </div> -->
+
+                </div>
+                <hr _ngcontent-msy-c1="" style="margin-top: 1rem;">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a id="togCust" role="button" aria-expanded="false" aria-controls="collapseOne">
+                            Customer Details
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body row ms-0 me-0 text-left padtp25">
+
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="title">Title</label>
+                                <input type="text" placeholder="Title*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.ApplicantTitle" class="form-control font16"
+                                    id="title" name="txtCustName" maxlength="100" disabled />
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="customer_name2">Customer Name</label>
+                                <input type="text" placeholder="Customer Name*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.Applicantname" class="form-control font16"
+                                    id="txtCustName" name="txtCustName" maxlength="100" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="cdob">Date of Birth</label>
+                                <input type="text" placeholder="Date of Birth*"
+                                    [value]="ADPSummaryDetailsResponse.Applicantdob | date:'dd/MM/yyyy'"
+                                    class="form-control font16" id="cdob" name="txtCustName" maxlength="100" disabled />
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="txtMobileNo">Mobile Number</label>
+                                
+                                <input type="text" placeholder="Mobile Number*" appOnlyNumeric id="txtMobileNo"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.Applicantmobile" class="form-control font16"
+                                    name="txtMobileNo" maxlength="10" disabled />
+                              
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-md-4" *ngIf="IsGPA=='true'">
+                            <div class="form-group form-floating">
+
+                                <input type="text" placeholder="Occupation*" appOnlyNumeric id="txtMobileNo"
+                                    [value]="ADPSummaryDetailsResponse.Occupation | titlecase"
+                                    class="form-control font16" name="txtMobileNo" maxlength="10" disabled />
+                                <label for="ddlOccupation">Occupation:</label>
+                            </div>
+                        </div> -->
+
+                        <div class="col-md-4" *ngIf="ADPSummaryDetailsResponse.PAN">
+                            <div class="form-group form-floating">
+                                <label for="txtMobileNo">PAN Number</label>
+                                <input type="text" placeholder="PAN Number" id="txtPANCardNo"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.PAN" class="form-control font16"
+                                    name="txtPANCardNo" disabled />
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <div class="form-group form-floating">
+                                <label for="txtEmail">Email</label>
+                                <span class="text-muted notetxt">Policy will be mailed to this Email ID</span>
+                                <input type="text" placeholder="Email*" id="txtEmail" class="form-control font16"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.Applicantemail" name="txtEmail"
+                                    maxlength="50" disabled />
+                               
+                            </div>
+                        </div>
+
+                        <hr style="margin-top: 1rem;" />
+
+
+                        <div class="col-md-12 text-left">
+                            <h4 class="color-orange subhead-title">Risk Location Address</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating" id="dvCustAddress">
+                                <label for="txtAddress">Address</label>
+                                <input type="text" placeholder="Address*"
+                                    [(ngModel)]="ADPSummaryDetailsResponse.ApplicantAddress1" id="txtAddress"
+                                    class="form-control font16" name="txtAddress" autocomplete="off" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating" id="dvCustPincode">
+                                <label for="txtPincode">Pincode</label>
+                                <input type="text" [(ngModel)]="ADPSummaryDetailsResponse.ApplicantPincode"
+                                    placeholder="Pincode" appOnlyNumeric id="txtPincode" class="form-control font16"
+                                    name="txtPincode" maxlength="6" disabled />
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="ddState">State</label>
+                                <input type="text" placeholder="Select State*"
+                                    [value]="ADPSummaryDetailsResponse.ApplicantState | titlecase" id="txtState"
+                                    class="form-control font16" name="txtState" autocomplete="off" disabled />
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-floating">
+                                <label for="ddCity">City</label>
+                                <input type="text" placeholder="Select City*"
+                                    [value]="ADPSummaryDetailsResponse.ApplicantCity | titlecase" id="txtState"
+                                    class="form-control font16" name="txtState" autocomplete="off" disabled />
+                               
+                            </div>
+                        </div>
+
+
+                        <!-- <hr style="margin-top: 1rem;" />
+                        <div class="row p-0 ms-0 me-0" ngDefaultControl>
+                            <div class="col-md-12 text-left">
+                                <h4 class="color-orange subhead-title">Nominee Details</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-floating">
+                                    <input type="text" [(ngModel)]="ADPSummaryDetailsResponse.NomineeName"
+                                        placeholder="Nominee Name*" id="txtNomineeName" class="form-control font16"
+                                        name="txtNomineeName" maxlength="100" disabled />
+                                    <label for="txtNomineeName">Nominee Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-floating">
+
+                                    <input id="txtNomiDOB" placeholder="Date of Birth"
+                                        [value]="ADPSummaryDetailsResponse.NomineeDOB | date:'dd/MM/yyyy'" disabled
+                                        class="form-control">
+                                    <label for="txtNomiDOB">Date Of Birth</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-floating ">
+                                    <input id="txtNomiDOB" placeholder="Relationship"
+                                        [value]="ADPSummaryDetailsResponse.NomineeRelation | titlecase" disabled
+                                        class="form-control">
+                                    <label for="ddNomRel">Nominee Relationship</label>
+                                </div>
+                            </div>
+                        </div>
+ -->
+
+                        <div class="clearfix"></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="mgtb20">
+
+
+
+    <section class="mgtb20" *ngIf="this.flowtype=='NA_CUST' || this.flowtype=='NA_CUSTLINK'">
+        <div class="container">
+            <div class="row flex-col card_layout terms-div">
+
+                <div class="col-md-8 second-div">
+                    <div class="col-md-12">
+                        <p class="terms-cont"><span class="color-blue">Agree To </span><span><a href="#"
+                                    data-bs-toggle="modal" data-bs-target="#terms_condition" class="color-orange">Terms
+                                    &amp; Conditions</a></span>
+                        </p>
+                    </div>
+                    <div class="col-md-12 medium-background ptb0lr0">
+                        <div class="cover-value row m-0">
+                            <div class="col-md-1 ps-0 pe-0 col-2 col-xs-2" style="padding-left: 3px;"> 
+                                <i class="fa fa-2x fa-check personal_accident_check" (click)="toggleCover();" aria-disabled="false"> </i>
+                            </div>
+                            <div class="col-md-11 ps-0 col-10 col-xs-10">
+                                <span class="personal-cover personal-cover-enabled" (click)="toggleCover();"> I accept
+                                    the
+                                    declaration and agree to the terms and conditions.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 first-div">
+                    <div class="col-md-12 padtp15">
+                        <div class="form-group">
+
+                            <input id="customer_ref_no" placeholder="Employee Reference No. (If Any)" value=""
+                                name="customer_ref_no" [(ngModel)]="ADPSummaryDetailsResponse.AgentId"
+                                class="form-control font16" type="text" />
+                            <!-- <label for="customer_ref_no">Employee Reference No. (If Any) :</label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2" *ngIf="isOtpSent==true && isOtpVerified==false">
+                <div class="col-md-6 offset-md-3">
+                    <div class="input-field">
+                        <label for="OTPfield" style="top: 0px;">Enter OTP</label>
+                        <input type="text" [(ngModel)]="OTPtxt" id="OTPfield" class="form-control"
+                            wtx-context="A17A8004-2C89-4E69-8F98-48391CF49E93" (keyup.enter)="VerifyOtp()" style="border-bottom: 1px solid #ccd4da;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 13px;">
+                <div class="col-md-12 text-center">
+
+                    <button type="button" id="MAKE_NETBANKING_PAYMENT"
+                        class="btn myfixebtn btn-primary btn-dash bg-blue noborder" *ngIf="!isDownloaded"
+                        (click)="ProceedToPayment()">Submit</button>
+                    <button type="button" class="btn myfixebtn btn-primary btn-dash bg-blue noborder"
+                        *ngIf="isOtpSent==true && isOtpVerified==false" (click)="VerifyOtp()">Verify OTP</button>
+                    <button type="button" class="btn myfixebtn btn-primary btn-dash bg-blue noborder ms-1"
+                        *ngIf="isOtpVerified==false && isOtpSent == true" (click)="SendOTP()">Re-Send OTP</button>
+                    <!-- <button type="button" id="MAKE_NETBANKING_PAYMENT" class="btn myfixebtn btn-primary btn-dash bg-blue noborder" (click)="HFdownloadPdfBiztalk()">Download</button> -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div id="terms_condition" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-orange">
+                    <h4 class="modal-title">Terms &amp; Conditions</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="terms">
+                        <ul>
+                            <li> Any loss or damage to the building/Contents due to any insured perils is covered under Home Building/Content Cover.</li>
+                            <li>Any loss or damage to valuable due to insured perils is covered under the policy.</li>
+                            <li>Any loss or damage due to leakage and seepage is not covered under the policy.
+                            </li>
+                            <li>Rainfall is not an insured peril and hence is not covered under the policy</li>
+                            <li>Basement and content there in are not covered under the policy.
+                            </li>
+                            <li>Kutcha Construction is excluded under the Policy.</li>
+                            <li> Bifurcation of content into Durables/F&F/Other Contents while sourcing the Content Policy is mandatory</li>
+                            <li> Building more than 50 years age is excluded from the scope of cover.</li>
+                            <li>Carpet Area in sqmt and Cost of Construction per sqmt is mandatory while sourcing Structure Policies</li>
+                            <li>Policy is subject to Reinstatement Value Basis for Building and replacement Value Basis for Contents.</li>
+                            <li>Contents can be covered for mechanical and electrical breakdown up to 20% of content SI maximum INR 5 lacs</li>
+                            <li>Limit of sum insured for jewellery is 20% of content SI or INR 5 Lacs, whichever is lower.</li>
+                        </ul>
+    
+                        <!-- <div>
+                            <b>Free Look Period:</b> Insured/ Policyholder has a period of 15 days from the date of
+                            receipt
+                            of the Policy document/Certificate of Insurance to review the terms and conditions of this
+                            Policy/Certificate of Insurance. If the Insured/ Policyholder has any objections to any of
+                            the
+                            terms and conditions, he/she have the option of cancelling the Policy/Certificate of
+                            Insurance
+                            stating the reasons for cancellation and in such a case, the Company will refund premium
+                            subject
+                            to ;
+                            <ul>
+                                <li>A deduction of the expenses incurred on stamp duty charges, if the risk has not
+                                    commenced. </li>
+                                <li>A deduction of the expenses incurred on stamp duty charges and proportionate risk
+                                    premium for period on cover, if the risk has commenced. </li>
+                                <li>A deduction of such proportionate risk premium in commensuration with the risk
+                                    covered
+                                    during such period, where only a part of risk has commenced. The Policy can be
+                                    cancelled
+                                    only if there is no claim under the Policy. Free look provision is not applicable
+                                    and/or
+                                    available at the time of renewal of the Policy. XV. </li>
+                            </ul>
+                        </div>
+    
+                        <p class="text-justify">
+                            <b>Cancellation: </b><br>
+                            <b><u>Single Policy/Master Policy- </u></b><br>
+                            The Company may cancel this Policy, by giving 15 days’ notice in writing/e-mail registered
+                            with
+                            us acknowledgment due to the Policyholder at his / their last known address. The Company
+                            shall
+                            exercise its right to cancel only on grounds of mis-representation, fraud, non-disclosure of
+                            material facts, in which case the policy shall be void and all premium paid thereon shall be
+                            forfeited to the Company as per the disclosure to information norm. In case of
+                            non-cooperation
+                            of the Policyholder in implementing the terms and conditions of this Policy the policy shall
+                            be
+                            cancelled and premium shall be refunded on ratable proportion provided that no claim has/is
+                            occurred/reported up to the date of cancellation of this Policy. <br><br>
+                            The Policyholder may also give 15 days’ notice in writing/ e-mail registered with us, to the
+                            Company, for the cancellation of this Policy, in which case the Company shall from the date
+                            of
+                            receipt of notice, cancel the Policy and retain the premium for the period this Policy has
+                            been
+                            in force as opted for by the Policyholder and mentioned in the Renewal & Refund section of
+                            this
+                            Policy. Provided that, refund on cancellation of Policy by the Insured shall be made only if
+                            no
+                            claim has/is occurred/reported up to the date of cancellation of this Policy. The Policy
+                            will
+                            terminate at the expiration of the period for which premium has been paid or on Expiration
+                            Date
+                            shown in the Policy Schedule, whichever is earlier.
+                        </p>
+    
+                        <div>
+                            <b><u>Certificate of Insurance</u></b>
+                            <p class="m-0">Each Certificate of Insurance will terminate on the earliest of the following
+                                dates:</p>
+                            <ol>
+                                <li>The date the master Policy is terminated, </li>
+                                <li>The date insured person or Company cancel the Certificate of Insurance. </li>
+                                <li>The date the Insured person ceases to be part of the group unless specified
+                                    otherwise.
+                                </li>
+                                <li>The date of Expiry of the Certificate </li>
+                                <li>Instalment premium is not received during a 15 Days Grace period. </li>
+                            </ol>
+                            <p>The Company may cancel this Certificate of Insurance, by giving 15 days’ notice in
+                                writing/
+                                e-mail acknowledgment due to the Insured at his / their last known address. The Company
+                                shall exercise its right to cancel only on grounds of mis-representation, fraud,
+                                non-disclosure of material facts of the Insured/ Insured Person in which case the
+                                Certificate of Insurance shall be void and all premium paid thereon shall be forfeited
+                                to
+                                the Company as per the disclosure to information norm. </p>
+                            <p>In case of non-cooperation of the Insured/Insured Person(s) in implementing the terms and
+                                conditions of this Policy the policy shall be cancelled and premium shall be refunded on
+                                ratable proportion provided that no claim has/is occurred/reported up to the date of
+                                cancellation of this Policy The Insured may also give 15 days’ notice in writing, to the
+                                Company, for the cancellation of this Certificate of Insurance, in which case the
+                                Company
+                                shall from the date of receipt of notice, cancel the Certificate of Insurance and retain
+                                the
+                                premium for the period this Certificate of Insurance has been in force, as opted for by
+                                the
+                                Policyholder and mentioned in the Renewal & Refund section of this Policy. </p>
+                            <p>Provided that, refund on cancellation of Certificate of Insurance by the Insured shall be
+                                made only if no claim has/is occurred/reported up to the date of cancellation of this
+                                Certificate of Insurance </p>
+                            <p><b>Territorial Limits/Currency of payment:</b> The coverage under each of the sections of
+                                the
+                                policy shall be restricted to the Territorial limits as specified in the Schedule. All
+                                claims shall be payable in India in Indian Rupees only</p>
+                        </div>
+    
+                        <div class="pt-2">
+                            <h5><b>Key details about policy coverage :</b></h5>
+                            <p><b>ACCIDENTAL DEATH</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in death within 12 Months from the date of
+                                accident, the company agrees to pay to the Insured Person’s Nominee, Beneficiary or
+                                legal
+                                representative, the Sum Insured specified in the Schedule/Certificate of Insurance.</p>
+                            <p><b>PERMANENT TOTAL DISABLEMENT (PTD)</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in any of the disablement stated in the table
+                                below
+                                and opted for by the Policyholder/Insured Person as indicated in the Policy
+                                Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                                company agrees to pay to the Insured Person, Refer policy wording for table of Sum
+                                insured.
+                            </p>
+                            <p><b>PERMANENT PARTIAL DISABLEMENT (PPD)</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in any of the disablement stated in the table
+                                below
+                                and opted for by the Policyholder/Insured Person as indicated in the Policy
+                                Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                                company agrees to pay to the Insured Person.</p>
+                            <p><b>IN-HOSPITAL MEDEX (INPATIENT) </b><br>
+                                If any Insured Person sustains Injury during the Policy Period and is hospitalized as an
+                                In-patient, then the Company shall reimburse the Insured Person all necessary Usual and
+                                Reasonable In-Hospital Medical Expenses, incurred immediately after the Date of Accident
+                                insured under the policy up to the amount specified in the Schedule, subject to the
+                                Co-Payment/Deductible/Franchise and Terms and Conditions of this Policy.
+                                <br>In-Hospital Medical Expenses shall include Room, ICU & Boarding expenses, Medical
+                                Practitioner’s fees, Surgeon’s Fees, Nursing Charges, X-Ray, laboratory & charges,
+                                prescribed drugs and medicines, therapeutics, anesthetics (including administration of
+                                anesthetics), blood transfusions.
+                            </p>
+                            <p><b>HOSPITAL CASH</b><br>
+                                If any Insured Person sustains injury during the Policy period that requires
+                                hospitalization
+                                as In-Patient, The Company shall pay a daily allowance for each continuous and completed
+                                period of 24 hours not exceeding maximum number of days and subject to
+                                Deductible/Franchise
+                                specified in the Schedule.
+                            </p>
+                            <div>
+                                <p><b>HOME & VEHICLE MODIFICATION</b><br>
+                                    If any Insured Person sustains Injury during the Policy Period which directly and
+                                    independently of all other causes results in Permanent Disablement (Partial or
+                                    Total)
+                                    within twelve months from the Date of Accident, then the Company agrees to reimburse
+                                    cost of modification done on home and vehicle following an accidental bodily injury
+                                    subject to Co-Payment/deductible/franchise and maximum amount specified in the
+                                    Schedule.
+                                    Such modification should be medically necessary for easy movement of the insured to
+                                    exhibit the routine daily activities.<br>
+                                    The modifications made to the Home and Vehicle should be compliant with the
+                                    applicable
+                                    laws in India.
+                                </p>
+    
+                                <p>
+                                    The liability of the Company arises only if there is a payable claim under Permanent
+                                    Disablement (Partial or Total) opted for by the Insured/Policyholder and
+                                    specifically
+                                    covered under the policy schedule/Certificate of Insurance.<br>
+                                    In case this benefit has been opted on standalone basis, the admissibility of the
+                                    claim
+                                    under this section shall be determined based on the admissibility of claim under
+                                    Permanent Disablement (Partial or Total) had the same been covered under the
+                                    policy.<br>
+                                    Compensation payable under this section shall be independent to compensation payable
+                                    under Permanent Disablement (Partial or Total).<br>
+    
+                                </p>
+                                <p class="m-0">In this benefit: </p>
+                                <ul>
+                                    <li>The maximum payment made to the workshop/contractor as cash payment shall not
+                                        exceed
+                                        the maximum limit as allowed by the regulations. </li>
+                                    <li>If cost of modification under any of Home/Vehicle exceeds INR. 2 Lacs, the
+                                        payment
+                                        to the workshop/contractor should be made through payment modes other than cash.
+                                    </li>
+                                    <li>Cost of Modification of Home including raw material and labour work shall not
+                                        exceed
+                                        INR. 200 per square feet for Metro and INR. 150 per square feet for Non Metros.
+                                    </li>
+                                    <li>Purchase of new vehicle or home is not covered.</li>
+                                </ul>
+                            </div>
+    
+                            <p><b>COMMON CARRIER</b><br>
+                                The Company agrees to pay fixed Compensation as specified in the schedule in the event
+                                of
+                                Accidental Death or Permanent Total Disablement whilst travelling in a Common
+                                Carrier.<br><br>
+                                In this benefit:<br>
+                                Common Carrier means any air conveyance operated under a license issued by a
+                                governmental
+                                authority having jurisdiction, for the transportation of fare paying passengers and
+                                which
+                                has fixed, established routes only.<br><br>
+                                The liability of the Company arises only if there is a payable claim under Accidental
+                                Death
+                                or Permanent Total Disablement opted for by the Insured/Policyholder and specifically
+                                covered under the policy schedule/Certificate of Insurance.<br>
+                                In case this benefit has been opted on standalone basis, the admissibility of the claim
+                                under this section shall be determined based on the admissibility of claim under
+                                Accidental
+                                Death or Permanent Total Disablement had the same been covered under the policy.<br><br>
+                                Compensation payable under this section shall be independent to compensation payable
+                                under
+                                Accidental Death or Permanent Total Disablement.
+    
+                            </p>
+                        </div> -->
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-dash bg-blue noborder mt-1"
+                            data-bs-dismiss="modal">OK</button>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+  
+    <!-- <div id="terms_condition" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+           
+            <div class="modal-content">
+                <div class="modal-header bg-orange">
+                    <h4 class="modal-title">Terms &amp; Conditions</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="terms">
+                        <ul>
+                            <li> Any loss or damage to the building/Contents due to any insured perils is covered under Home Building/Content Cover.</li>
+                            <li>Any loss or damage to valuable due to insured perils is covered under the policy.</li>
+                            <li>Any loss or damage due to leakage and seepage is not covered under the policy.
+                            </li>
+                            <li>Rainfall is not an insured peril and hence is not covered under the policy</li>
+                            <li>Basement and content therein are not covered under the policy
+                            </li>
+                            <li>Kutcha Construction is excluded under the Policy</li>
+                            <li>Portable Electronic equipment, Generators, Pedal cycle cash Automobiles etc. contents lying outside the home premises and content more than 10 years of age are not covered under the Policy.</li>
+                            <li> For further details on the Terms & Conditions of the Policy, kindly refer the Policy
+                                Wordings</li>
+                                <li>
+                                    Bifurcation of content into Durables/F&F/Other Contents while sourcing the Content Policy is mandatory
+                                </li>
+                                <li>
+                                    Building more than 50 years age is excluded from the scope of cover
+                                </li>
+                                <li>
+                                    Carpet Area in sqmt and Cost of Construction per sqmt is mandatory while sourcing Structure Policies
+                                </li>
+                                <li>
+                                    Policy is subject to Reinstatement Value Basis for Building and replacement Value Basis for Contents.
+                                </li>
+                                <li>
+                                    Contents can be covered for mechanical and electrical breakdown up to 20% of content SI maximum INR 5 lacs
+                                </li>
+                                <li>
+                                    Limit of sum insured for jewellery is 20% of content SI or INR 5 Lacs, whichever is lower.
+                                </li>
+                                <li>
+                                    Any individual item under the mechanical and electrical breakdown cover must be of minimum value INR 5, 000 and should be of less than 10 years.
+                                </li>
+                        </ul>
+
+                        <div>
+                            <b>Free Look Period:</b> Insured/ Policyholder has a period of 15 days from the date of
+                            receipt
+                            of the Policy document/Certificate of Insurance to review the terms and conditions of this
+                            Policy/Certificate of Insurance. If the Insured/ Policyholder has any objections to any of
+                            the
+                            terms and conditions, he/she have the option of cancelling the Policy/Certificate of
+                            Insurance
+                            stating the reasons for cancellation and in such a case, the Company will refund premium
+                            subject
+                            to ;
+                            <ul>
+                                <li>A deduction of the expenses incurred on stamp duty charges, if the risk has not
+                                    commenced. </li>
+                                <li>A deduction of the expenses incurred on stamp duty charges and proportionate risk
+                                    premium for period on cover, if the risk has commenced. </li>
+                                <li>A deduction of such proportionate risk premium in commensuration with the risk
+                                    covered
+                                    during such period, where only a part of risk has commenced. The Policy can be
+                                    cancelled
+                                    only if there is no claim under the Policy. Free look provision is not applicable
+                                    and/or
+                                    available at the time of renewal of the Policy. XV. </li>
+                            </ul>
+                        </div>
+
+                        <p class="text-justify">
+                            <b>Cancellation: </b><br>
+                            <b><u>Single Policy/Master Policy- </u></b><br>
+                            The Company may cancel this Policy, by giving 15 days’ notice in writing/e-mail registered
+                            with
+                            us acknowledgment due to the Policyholder at his / their last known address. The Company
+                            shall
+                            exercise its right to cancel only on grounds of mis-representation, fraud, non-disclosure of
+                            material facts, in which case the policy shall be void and all premium paid thereon shall be
+                            forfeited to the Company as per the disclosure to information norm. In case of
+                            non-cooperation
+                            of the Policyholder in implementing the terms and conditions of this Policy the policy shall
+                            be
+                            cancelled and premium shall be refunded on ratable proportion provided that no claim has/is
+                            occurred/reported up to the date of cancellation of this Policy. <br><br>
+                            The Policyholder may also give 15 days’ notice in writing/ e-mail registered with us, to the
+                            Company, for the cancellation of this Policy, in which case the Company shall from the date
+                            of
+                            receipt of notice, cancel the Policy and retain the premium for the period this Policy has
+                            been
+                            in force as opted for by the Policyholder and mentioned in the Renewal & Refund section of
+                            this
+                            Policy. Provided that, refund on cancellation of Policy by the Insured shall be made only if
+                            no
+                            claim has/is occurred/reported up to the date of cancellation of this Policy. The Policy
+                            will
+                            terminate at the expiration of the period for which premium has been paid or on Expiration
+                            Date
+                            shown in the Policy Schedule, whichever is earlier.
+                        </p>
+
+                        <div>
+                            <b><u>Certificate of Insurance</u></b>
+                            <p class="m-0">Each Certificate of Insurance will terminate on the earliest of the following
+                                dates:</p>
+                            <ol>
+                                <li>The date the master Policy is terminated, </li>
+                                <li>The date insured person or Company cancel the Certificate of Insurance. </li>
+                                <li>The date the Insured person ceases to be part of the group unless specified
+                                    otherwise.
+                                </li>
+                                <li>The date of Expiry of the Certificate </li>
+                                <li>Instalment premium is not received during a 15 Days Grace period. </li>
+                            </ol>
+                            <p>The Company may cancel this Certificate of Insurance, by giving 15 days’ notice in
+                                writing/
+                                e-mail acknowledgment due to the Insured at his / their last known address. The Company
+                                shall exercise its right to cancel only on grounds of mis-representation, fraud,
+                                non-disclosure of material facts of the Insured/ Insured Person in which case the
+                                Certificate of Insurance shall be void and all premium paid thereon shall be forfeited
+                                to
+                                the Company as per the disclosure to information norm. </p>
+                            <p>In case of non-cooperation of the Insured/Insured Person(s) in implementing the terms and
+                                conditions of this Policy the policy shall be cancelled and premium shall be refunded on
+                                ratable proportion provided that no claim has/is occurred/reported up to the date of
+                                cancellation of this Policy The Insured may also give 15 days’ notice in writing, to the
+                                Company, for the cancellation of this Certificate of Insurance, in which case the
+                                Company
+                                shall from the date of receipt of notice, cancel the Certificate of Insurance and retain
+                                the
+                                premium for the period this Certificate of Insurance has been in force, as opted for by
+                                the
+                                Policyholder and mentioned in the Renewal & Refund section of this Policy. </p>
+                            <p>Provided that, refund on cancellation of Certificate of Insurance by the Insured shall be
+                                made only if no claim has/is occurred/reported up to the date of cancellation of this
+                                Certificate of Insurance </p>
+                            <p><b>Territorial Limits/Currency of payment:</b> The coverage under each of the sections of
+                                the
+                                policy shall be restricted to the Territorial limits as specified in the Schedule. All
+                                claims shall be payable in India in Indian Rupees only</p>
+                        </div>
+
+                        <div class="pt-2">
+                            <h5><b>Key details about policy coverage :</b></h5>
+                            <p><b>ACCIDENTAL DEATH</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in death within 12 Months from the date of
+                                accident, the company agrees to pay to the Insured Person’s Nominee, Beneficiary or
+                                legal
+                                representative, the Sum Insured specified in the Schedule/Certificate of Insurance.</p>
+                            <p><b>PERMANENT TOTAL DISABLEMENT (PTD)</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in any of the disablement stated in the table
+                                below
+                                and opted for by the Policyholder/Insured Person as indicated in the Policy
+                                Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                                company agrees to pay to the Insured Person, Refer policy wording for table of Sum
+                                insured.
+                            </p>
+                            <p><b>PERMANENT PARTIAL DISABLEMENT (PPD)</b><br>
+                                If any Insured Person sustains Injury during the policy period which directly and
+                                independently of all other causes result in any of the disablement stated in the table
+                                below
+                                and opted for by the Policyholder/Insured Person as indicated in the Policy
+                                Schedule/Certificate of Insurance, within twelve months from the date of accident, the
+                                company agrees to pay to the Insured Person.</p>
+                            <p><b>IN-HOSPITAL MEDEX (INPATIENT) </b><br>
+                                If any Insured Person sustains Injury during the Policy Period and is hospitalized as an
+                                In-patient, then the Company shall reimburse the Insured Person all necessary Usual and
+                                Reasonable In-Hospital Medical Expenses, incurred immediately after the Date of Accident
+                                insured under the policy up to the amount specified in the Schedule, subject to the
+                                Co-Payment/Deductible/Franchise and Terms and Conditions of this Policy.
+                                <br>In-Hospital Medical Expenses shall include Room, ICU & Boarding expenses, Medical
+                                Practitioner’s fees, Surgeon’s Fees, Nursing Charges, X-Ray, laboratory & charges,
+                                prescribed drugs and medicines, therapeutics, anesthetics (including administration of
+                                anesthetics), blood transfusions.
+                            </p>
+                            <p><b>HOSPITAL CASH</b><br>
+                                If any Insured Person sustains injury during the Policy period that requires
+                                hospitalization
+                                as In-Patient, The Company shall pay a daily allowance for each continuous and completed
+                                period of 24 hours not exceeding maximum number of days and subject to
+                                Deductible/Franchise
+                                specified in the Schedule.
+                            </p>
+                            <div>
+                                <p><b>HOME & VEHICLE MODIFICATION</b><br>
+                                    If any Insured Person sustains Injury during the Policy Period which directly and
+                                    independently of all other causes results in Permanent Disablement (Partial or
+                                    Total)
+                                    within twelve months from the Date of Accident, then the Company agrees to reimburse
+                                    cost of modification done on home and vehicle following an accidental bodily injury
+                                    subject to Co-Payment/deductible/franchise and maximum amount specified in the
+                                    Schedule.
+                                    Such modification should be medically necessary for easy movement of the insured to
+                                    exhibit the routine daily activities.<br>
+                                    The modifications made to the Home and Vehicle should be compliant with the
+                                    applicable
+                                    laws in India.
+                                </p>
+
+                                <p>
+                                    The liability of the Company arises only if there is a payable claim under Permanent
+                                    Disablement (Partial or Total) opted for by the Insured/Policyholder and
+                                    specifically
+                                    covered under the policy schedule/Certificate of Insurance.<br>
+                                    In case this benefit has been opted on standalone basis, the admissibility of the
+                                    claim
+                                    under this section shall be determined based on the admissibility of claim under
+                                    Permanent Disablement (Partial or Total) had the same been covered under the
+                                    policy.<br>
+                                    Compensation payable under this section shall be independent to compensation payable
+                                    under Permanent Disablement (Partial or Total).<br>
+
+                                </p>
+                                <p class="m-0">In this benefit: </p>
+                                <ul>
+                                    <li>The maximum payment made to the workshop/contractor as cash payment shall not
+                                        exceed
+                                        the maximum limit as allowed by the regulations. </li>
+                                    <li>If cost of modification under any of Home/Vehicle exceeds INR. 2 Lacs, the
+                                        payment
+                                        to the workshop/contractor should be made through payment modes other than cash.
+                                    </li>
+                                    <li>Cost of Modification of Home including raw material and labour work shall not
+                                        exceed
+                                        INR. 200 per square feet for Metro and INR. 150 per square feet for Non Metros.
+                                    </li>
+                                    <li>Purchase of new vehicle or home is not covered.</li>
+                                </ul>
+                            </div>
+
+                            <p><b>COMMON CARRIER</b><br>
+                                The Company agrees to pay fixed Compensation as specified in the schedule in the event
+                                of
+                                Accidental Death or Permanent Total Disablement whilst travelling in a Common
+                                Carrier.<br><br>
+                                In this benefit:<br>
+                                Common Carrier means any air conveyance operated under a license issued by a
+                                governmental
+                                authority having jurisdiction, for the transportation of fare paying passengers and
+                                which
+                                has fixed, established routes only.<br><br>
+                                The liability of the Company arises only if there is a payable claim under Accidental
+                                Death
+                                or Permanent Total Disablement opted for by the Insured/Policyholder and specifically
+                                covered under the policy schedule/Certificate of Insurance.<br>
+                                In case this benefit has been opted on standalone basis, the admissibility of the claim
+                                under this section shall be determined based on the admissibility of claim under
+                                Accidental
+                                Death or Permanent Total Disablement had the same been covered under the policy.<br><br>
+                                Compensation payable under this section shall be independent to compensation payable
+                                under
+                                Accidental Death or Permanent Total Disablement.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-dash bg-blue noborder mt-1"
+                            data-bs-dismiss="modal">OK</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div> -->

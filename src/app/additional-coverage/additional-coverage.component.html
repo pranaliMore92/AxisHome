@@ -1,0 +1,89 @@
+<div class="cmnbox" [ngClass]="{'d-block': !isShow,'d-none': isShow}">
+    <h3>
+        <!-- Additional Coverages -->
+        We offer more (Additional covers available on payment of extra premium)
+        <!-- <a href="javascript:void(0)" class="info" data-toggle="tooltip" title="" data-original-title="Hooray!"></a> -->
+    </h3>
+    <div class="innerdiv pr-0 pb-0 pl-0">
+        <ul class="contValue row d-flex justify-content-center" [formGroup]="addonCoverageForm">
+            <li *ngFor="let addon of addons" class="col-lg-3 col-md-4 col-sm-6 col-6 mx-0"
+                [ngClass]="{'d-none': !addon.isVisible}">
+                <input type="checkbox" id="{{addon.instrument_name}}" name="add_coverages" [checked]="addon.isAdded"
+                    (click)="toggleCoverage(addon)" [attr.disabled]="addon.isDisabled ? '' : null">
+                <label for="{{addon.instrument_name}}">
+                    <div class="contDiv">
+                        <img src="assets/image/{{addon.img}}" alt="icon" style="width:65px">
+                        <span>
+                            {{addon.label}}
+                            <a class="info no-underline" #tooltip="matTooltip" matTooltip="{{addon.ToolTip}}"
+                                [matTooltipPosition]="'below'" matTooltipClass="example-tooltip-red"
+                                aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                                (click)="tooltiptoggle(tooltip)"></a>
+                        </span>
+                    </div>
+                    <div class="numText">
+                        <!-- <button *ngIf="addon.countable" type="button" class="quantity-left-minus" data-type="minus" (click)="filterAndUpdate('remove', addon.instrument_name)" [disabled]="addon.count < 1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.667 298.667" width="11"><path d="M0 128h298.667v42.667H0z"></path></svg>
+              </button> -->
+                        <ng-container *ngIf='addon.img != "personal_accident.png"'>
+                            <input type="tel" class="form-control text-center addons"
+                                placeholder='{{"Max limit: "+( addon.defaultSI | currency:"₹": "symbol" : "1.0-0")}} '
+                                formControlName="{{addon.instrument_name}}" (change)="checkInput(addon)"
+                                *ngIf="addon.isVisible" appCurrencyFormatter>
+                        </ng-container>
+                        <ng-container *ngIf='addon.img === "personal_accident.png"'>
+
+                            <span>{{addonCoverageForm.get(addon.instrument_name)?.value | currency:"₹": "symbol" :
+                                "1.0-0"}}</span>
+                            <select id="{{addon.instrument_name}}" name="{{addon.instrument_name}}" required
+                                class="custom-select form-control" formControlName="{{addon.instrument_name}}"
+                                (change)="checkInput(addon)" *ngIf="addon.isVisible" style="font-weight: normal;">
+                                <option class="optionBG" value='' selected>Select</option>
+                                <option class="optionBG" [value]="cover.val"
+                                    *ngFor='let cover of personalAccidentCover'>
+                                    {{cover.relation}}
+                                </option>
+                            </select>
+
+                            <!-- <input type="tel" class="form-control text-center addons" placeholder='{{"Max limit: "+(addon.defaultSI | currency:"₹": "symbol" : "1.0-0")}}' formControlName="{{addon.instrument_name}}" (change)="checkInput(addon)" *ngIf="addon.isVisible" appCurrencyFormatter> -->
+                        </ng-container>
+                        <!-- <input type="tel" class="form-control text-center addons" placeholder='{{addon.defaultSI > 0 ? "Max limit: "+(addon.defaultSI | currency:"₹": "symbol" : "1.0-0"): ""}}' formControlName="{{addon.instrument_name}}" (change)="checkInput(addon)" *ngIf="addon.isVisible && !addon.countable" appCurrencyFormatter> -->
+                        <!-- <input type="tel" class="form-control text-center addons" formControlName="{{addon.instrument_name}}" (input)="checkInput(addon)" *ngIf="addon.isVisible && addon.countable" placeholder='{{addon.defaultSI > 0 ? "Max limit: "+(addon.defaultSI | currency:"₹": "symbol" : "1.0-0"): ""}}' readonly appCurrencyFormatter> -->
+                        <!-- <button *ngIf="addon.countable" type="button" class="quantity-right-plus" data-type="plus" (click)="filterAndUpdate('add', addon.instrument_name)"></button> -->
+                    </div>
+                    <!-- <div>
+              <span class="max-limit">{{addon.defaultSI > 0 ? 'Max limit:'+(addon.defaultSI | currency:"₹": 'symbol' : '1.0-0'): ''}}</span>
+            </div> -->
+                </label>
+            </li>
+        </ul>
+        <!-- <div [formGroup]="paForm" *ngIf="formValues?.field_1288?.length">
+        <div class="col-md-4 col-sm-5 form-group">
+          <div class="input-field">
+            Nominee name
+            <input type="text" id="txtNomineeName" class="form-control" placeholder="Please enter Nominee name"
+              formControlName="NomineeName">
+          </div>
+        </div>
+      </div> -->
+        <div class="col-12 text-center pb-4">
+            <button type="button" class="cstmbtn" (click)="submitAddonType()">PROCEED TO CHOOSE YOUR PLAN</button>
+        </div>
+    </div>
+</div>
+
+<div class="cmnbox2" [ngClass]="{'d-block': isShow,'d-none': !isShow}">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Add on Coverages</strong>
+                    <span>Total Coverages Value : {{allTotal | currency:"₹": "symbol" : "1.0-0"}}</span>
+                </td>
+                <td>
+                    <a title="Edit" (click)="editAddonType()" class="edit"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.cdk-overlay-container {
+    position: fixed;
+    
+}
+.form-control{
+    border: 0;
+    border-bottom: 1px solid #ccd4da;
+    border-radius: 0;
+    padding-left: 3px;
+}
+
+.tooltip .tooltip-inner {
+    max-width: 400px !important;
+}
+/* .bootbox .modal-header{
+    background: #043c6d;
+    color: #fff;
+    padding: 10px;
+	}
+	
+	.bootbox .close{
+	position: absolute;
+    right: 4%;
+    top: 3%;
+    color: #fff;
+	}
+	
+	.bootbox .modal-footer button{
+	min-width: 150px;
+    padding: 10px 25px;
+    border: 0;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    display: inline-block;
+    background-color: #881717;
+    background-image: linear-gradient(280deg, #ac3030, #881717);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.54);
+    -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.54);
+    color: #fff;
+    font: bold 13px "Roboto", sans-serif;
+    outline: 0 !important;
+    text-align: center;
+    text-decoration: none;
+	} */
+    #aryaModalbody .modal{
+        opacity: 1;
+      }
+      #aryaModalbody .modal.show .modal-dialog {
+        margin-top: 50%;
+      }
+      .modal-backdrop.show {
+        opacity: .5!important;
+      }
+      
+      .arya-il-btn-main {
+        width: 200px;
+        height: 60px;
+        background: linear-gradient(3deg, rgba(163,24,22,1) 50%, rgba(185,61,18,1) 100%);
+        color: #fff;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+      }
+      .bootbox .modal-header {
+          display: flex;
+        justify-items: self-end;
+        width: 100%;
+        flex-flow: initial;
+        align-items: center;
+      }
+      
+      .arya-il-left-banner {
+        min-height: 500px;
+      }
+      .arya-il-powered-by {
+        margin-top: 45px;
+        padding-bottom: 15px;
+      }
+      .arya-il-tabs-div .nav-link {
+        font-size: 14px;
+      }
+      .arya-il-doc-type p {
+        font-size: 14px;
+        margin-top: 2px;
+      }
+      .arya-il-f-label {
+        font-size: 14px;
+      }
+      #CustBoarding .form-control {
+        height: 50px;
+      }
+      #CustBoarding .close {
+        opacity: 0.9;
+      }
+      .arya-il-active-r .arya-il-doc-type , .arya-il-doc-type{
+         height: 50px;
+         padding: 12px 8px;
+      }
+      .arya-il-gender-box {
+        height: 50px;
+      }
+      @media only screen and (min-width: 767px){
+        .arya-il-result-form {
+            height: 350px;
+            overflow-x: auto;
+        }
+      }
+      @media (max-width: 768px){
+      .arya-il-mobile-banner {
+        width: 70%;
+      }
+      .arya-il-tabs-div .nav-tabs .nav-link {
+        border: none;
+        padding: 0.5rem 36px !important;
+      }
+      .arya-il-left-banner {
+        min-height: auto;
+      }
+      #aryaModalbody .modal.show .modal-dialog {
+        margin-top: 60%;
+      }
+      .arya-il-powered-by{
+        display: none;
+      }
+      
+      .arya-il-tabs-div .nav-tabs .nav-link {
+        padding: 0.5rem 15px!important;
+      }
+      .arya-il-doc-type {
+        margin-bottom: 10px;
+      }
+      .arya-il-result-form {
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      
+      }
+      .arya-il-tabs-div .nav-tabs .nav-link {
+        border: none;
+        padding: 0.5rem 35px;
+      }
+      .arya-il-gender-box {
+        
+        padding: 16px 0px 0px 3px;
+        font-size: 13px;
+        
+      }
+      .form-check-inline .form-check-input {
+        margin-right: 8px!important;
+      }
+      .arya-modal-dialog {
+        margin: 2.75rem auto;
+      }
+      .mainsec .cmnbox .innerdiv.big {
+        padding: 15px 15% 25px;
+      }
+      .fixed-top {
+        z-index: 999;
+    }
+  
+    
+    @media only screen and (max-width: 767px){
+      .mat-dialog-container {      
+        height: 95vh!important;
+        overflow-y: auto!important;
+    }
+    }
+   

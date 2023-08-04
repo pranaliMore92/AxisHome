@@ -1,0 +1,101 @@
+<!-- <div id="modal-content-wrapper"> -->
+<div class="cmnbox" [formGroup]="insuredNomineeForm" >
+  <button (click)="closeModal()" style="float: right;background: white;border: none;bottom: 10px;position: relative;
+  left: 9px;">X</button>
+
+  <!-- <div class="modal-heading">Personal accident cover form
+  </div>
+  <div class="col-12 pl-0 form-group">
+    <div class="input-field">
+      <input type="text" id="sumInsured" class="form-control" placeholder="Enter value for personal accident"
+        formControlName="sum_insured">
+    </div>
+  </div> -->
+  <div class="modal-heading">Insured and Nominee Details
+  </div>
+  <!-- <div formArrayName="insured"> -->
+  <!-- <div class="innerdiv" *ngFor="let member of insuredNomineeForm.get('insured')['controls']; let i = index"> -->
+  <div class="innerdiv my-3" >
+    <!-- <div [formGroupName]="i"> -->
+    <!-- Insured - {{i+1}} <button (click)="addInsured()" class="px-2">Add</button> <button (click)="removeInsured(i)" *ngIf="Insured.length > 1" class="px-2">Remove</button> -->
+    <div class="row" >
+      <div class="col-lg-3 col-md-4 col-sm-3 col-12 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Title <sup class="mandtory-field">*</sup></label>
+          <select id="insuredTitle" name="insuredTitle" required class="custom-select" formControlName='insured_title'>
+            <option class="optionBG" value='' selected disabled>Select Title</option>
+            <option class="optionBG" [value]="title.val" *ngFor='let title of customerTitles'>
+              {{title.val}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-5 col-sm-6 col-12 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Insured Relationship with Applicant<sup
+              class="mandtory-field">*</sup></label>
+          <select id="insuredTitle" name="insuredTitle" required class="custom-select"
+            formControlName='insured_relationship' (change)="InsuredRelationChanged()">
+            <option class="optionBG" value='' selected disabled>Select Relationship</option>
+            <option class="optionBG" value={{relation.Name}} *ngFor="let relation of insuredRelations">
+              {{relation.Name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-12 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Insured Name <sup class="mandtory-field">*</sup></label>
+          <input type="text" id="txtinsuredName" class="form-control" placeholder="Insured Name"
+            formControlName="insured_name" (keydown)="alphaOnly($event)">
+
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-3 col-12 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Nominee Date of Birth <sup
+              class="mandtory-field">*</sup></label>
+          <mat-form-field class="example-full-width" style="margin-top: 20px">
+            <input readonly matInput class="form-control" style="background: none;"
+              [matDatepicker]="customer_dob_picker" id="customer_dob" [min]="minDate" [max]="maxDate"
+              name="customer_dob" formControlName="insured_dob" (click)="customer_dob_picker.open()">
+            <mat-datepicker-toggle matSuffix [for]="customer_dob_picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #customer_dob_picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-5 col-sm-6 col-12 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Nominee Relationship with Insured<sup
+              class="mandtory-field">*</sup></label>
+          <!-- {{insuredRelations | json }} -->
+          <select id="nomineeTitle" name="insuredTitle" required class="custom-select"
+            formControlName='nominee_relationship'>
+            <option class="optionBG" value='' selected disabled>Select Relationship</option>
+            <option class="optionBG" value={{rel.NomineeName}} *ngFor="let rel of NomineeRelationShipList">
+              {{rel.NomineeName}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 form-group">
+        <div class="input-field">
+          <label for="txtRiskAdd" class="customer-label">Nominee Name <sup class="mandtory-field">*</sup></label>
+          <input type="text" id="txtNomineeName" class="form-control" placeholder="Nominee Name"
+            formControlName="nominee_name" (keydown)="alphaOnly($event)">
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+  <!-- </div> -->
+  <!-- <div class="cmnbox">
+    <div class="row">
+      
+    </div>
+  </div> -->
+</div>
+<div class="modal-foot col-12 text-center" style="margin-bottom: 10px;">
+  <button type="submit" value="PROCEED" class="cstmbtn" (click)="submit()" style="margin: 5px;">Proceed</button>
+  <button type="button" (click)="closeModal()" class="prevBtn cstmbtn" style="margin: 5px;">Cancel</button>
+</div>
+<!-- </div> -->

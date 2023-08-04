@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ICICI Lombard</title>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#f48220" />
+    <meta name="msapplication-navbutton-color" content="#f48220" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f48220" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://online.icicilombard.com/ilservices/customer/ui/arya_api.js"></script>
+    <link rel="stylesheet" href="assets/scss/bootstrap.min.css" />
+    <link rel="icon" type="image/ico" href="assets/image/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/fonts/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.scss" />
+    <link rel="stylesheet" href="./assets/css/simplebar.css" />
+    <link rel="stylesheet" href="./assets/css/_slick.scss" />
+    <link rel="stylesheet" href="./assets/css/_slick-theme.scss" />
+
+    <style>
+        .wdform50 {
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body class="BackgroundDiv">
+    <!-- oncontextmenu="return false" -->
+    <div class="backdrop" style="display: none;">
+        <div class="spinner">
+            <p id="loader_msg">Please wait... We are processing your request</p>
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <header class="container-fluid fixed-top">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 d-none d-lg-block">
+                        <h1>
+                            <a href="javascript:void(0)" title="AXIS BANK" class="logo">AXIS BANK</a>
+                        </h1>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <h2>
+                            <a href="javascript:void(0)" title="ICICI Lombard" class="logo1">ICICI Lombard</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <app-root></app-root>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="assets/js/3.4.1-jquery.min.js"></script>
+    <script src="assets/js/bootbox.js"></script>
+    <script src="assets/js/error_handler.js"></script>
+    <script src="assets/js/form-group.js"></script>
+    <script src="assets/PageJS/motor_insurance.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/slick.js"></script>
+    <script src="./assets/js/simplebar.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("body").tooltip({
+                selector: '[data-toggle="tooltip"]'
+            });
+        });
+
+        $(document).ready(function () {
+            $('.input-field input, select').focus(function () {
+                $(this).parents('.input-field').addClass('focused');
+            });
+
+            $('.input-field input, select').blur(function () {
+                var inputValue = $(this).val();
+                if (inputValue == "") {
+                    $(this).removeClass('filled');
+                    $(this).parents('.input-field').removeClass('focused');
+                } else {
+                    $(this).addClass('filled');
+                }
+            });
+        });
+    </script>
+</body>
+<!-- <script>
+    document.onkeydown = function (e) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'F'.charCodeAt(0)) {
+            return false;
+        }
+    }
+</script>
+<script>
+    $('body').on('dragstart drop', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        $("body").on("cut", function(e) {
+            e.preventDefault();
+            return false;
+        });
+        $("body").on("copy", function(e) {
+            e.preventDefault();
+            return false;
+        });
+        $("body").on("paste", function(e) {
+            e.preventDefault();
+            return false;
+        });
+</script> -->
+<script async>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-178774395-6', 'auto');// add your tracking ID here.
+// ga('send', 'pageview');
+</script>
+
+</html>

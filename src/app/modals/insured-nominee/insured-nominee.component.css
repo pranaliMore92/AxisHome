@@ -1,0 +1,36 @@
+.custom-select {
+    padding-left: 0;
+    border: 0;
+    background: transparent;
+    color: #4b4b4b;
+    font: normal 14px "Roboto", sans-serif;
+    box-shadow: 0 0 0 0;
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    border-bottom: 1px solid #EDEDED;
+    background: url(/assets/image/down_arrow.png) no-repeat right center/14px !important;
+}
+.maindiv .accordsec .card .card-body .custom-select {
+    padding-right: 17px;
+   
+    /* background: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right .75rem center/8px 10px; */
+}
+.customer-label {
+    color: #000 ;
+    font: 400 14px "Roboto", sans-serif;
+    position: initial;
+}
+.modal-heading {
+    /* padding: 10px 24px; */
+    padding: 10px 0px;
+    margin: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    /* background-color: #f7f5f5; */
+    color: var(--theme-color);
+    font: 600 16px "Roboto", sans-serif;
+}
+/* .input-field input, .input-field select{
+    margin-top: 0px; 
+} */

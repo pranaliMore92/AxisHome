@@ -1,0 +1,53 @@
+<div [ngClass]="{'d-block': showContent,'d-none': !(showContent)}">
+    <div class="cmnbox" [ngClass]="{'d-block': !isShow,'d-none': isShow}" [formGroup]="contentTypeForm">
+        <h3>Home Content Value
+            <!-- <a href="javascript:void(0)" class="info" data-toggle="tooltip" title="" data-original-title="Hooray!"></a> -->
+        </h3>
+        <div class="innerdiv pr-0 pb-0 pl-0">
+            <ul class="contValue row d-flex justify-content-center">
+                <li *ngFor="let content of contents" class="col-lg-3 col-sm-6 col-6 mx-0">
+                    <!-- <div class="layer" *ngIf="content.defaultValueApplicable"></div>  -->
+                    <div class="contDiv">
+                        <img src="assets/image/{{content.img}}" alt="icon">
+                        <span>
+                            {{content.label}}
+                            <a href="javascript:void(0)" class="info" #tooltip="matTooltip"
+                                matTooltip="{{content.tooltip}}" [matTooltipPosition]="'below'"
+                                matTooltipClass="example-tooltip-red"
+                                aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                                (click)="tooltip.toggle()"></a>
+                        </span>
+                    </div>
+                    <!-- <input type="tel" class="form-control text-center" placeholder="'Enter Value here'"
+              formControlName="{{content.content_name}}"  appCurrencyFormatter> -->
+                    <input type="tel" class="form-control text-center"
+                        placeholder="{{content.defaultValueApplicable ? 'Max limit '+(maxLimitJewelley| currency:'₹' : 'symbol' : '1.0-0') : 'Please Enter Value'}}"
+                        formControlName="{{content.content_name}}" (input)="checkContents()" max= "5000000" min= "10000" appCurrencyFormatter>
+
+                    <!-- <input type="tel" class="form-control text-center" formControlName="{{content.content_name}}" *ngIf="content.isVisible && content.defaultValueApplicable" placeholder='Max limit' readonly appCurrencyFormatter> -->
+
+                </li>
+
+            </ul>
+            <div class="col-12 text-center pb-4">
+                <button type="button" class="cstmbtn" (click)="submitContentType()">PROCEED</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cmnbox2" [ngClass]="{'d-block': isShow,'d-none': !isShow}">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Home Content Value</strong>
+                        <span>Total Home Content Value : {{total | currency:"₹": 'symbol' : '1.0-0'}}</span>
+                    </td>
+                    <td>
+                        <a title="Edit" (click)="editContentType()" class="edit"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

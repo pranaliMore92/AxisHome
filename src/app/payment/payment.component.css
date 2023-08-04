@@ -1,0 +1,199 @@
+/* 
+    @media only screen and (min-width: 991px){
+        body, html{
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 100%;
+        }
+    }
+    .accord .panel-heading a:before {
+        font-family: 'FontAwesome';
+        content: "\f054";
+        float: right;
+        transition: all 0.5s;
+        padding-top: 5px;
+    }
+    .accord .panel-default>.panel-heading {
+        background: #ffffff;
+    }
+    .accord .panel-title>a, .panel-title>a:active {
+        color: #013366;
+    }
+    .accord .panel-title>a, .panel-title>a:active {
+        font-size: 16px;
+    }
+    .accord .panel-title img{
+        margin-right: 10px;
+    }
+    #SendLinkModel .modal-header {
+        border-bottom: 0!important;    
+        padding-bottom: 0px !important;    
+    }
+    
+    #SendLinkModel .modal-footer {    
+        border-top: 0 !important;    
+    }
+    
+    #SendLinkModel .submit-btn{    
+        padding: 8px 25px;    
+    }
+    #SendLinkModel .modal-content{
+        border-radius: 12px;
+    }
+    #SendLinkModel ul .flnone {
+        list-style: none;
+    }
+    #SendLinkModel ul li span{
+        margin-right: 10px;
+    }
+    #SendLinkModel .btnstylenew{
+        background: #004c8f;
+    color: #fff;
+    border: 1px solid #004c8f;
+    padding: 10px 15px;
+    border-radius: 20px;
+    }
+    
+    .submit-btn.back{    
+        background-color: transparent;    
+        border-color: #004c8f;    
+        color: #004c8f;    
+    }
+
+    @media only screen and (min-width: 991px){
+        .accord .panel-heading a:before {
+            padding-top: 7px;
+            content: "\f054";
+        }
+        .wd10{
+            width: 7%;
+        }
+        .accord .panel-group .panel {
+            width: 30%;
+            margin: 0 auto;
+        }
+        .mgtb-20 {
+            margin-top: 5px!important;
+            margin-bottom: 10px!important;
+        }
+    }
+ */
+
+    
+ .total-premium h5{
+    color: #004c8f;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500
+}
+.total-premium h2{
+    font-size: 45px;
+    font-weight: 600;
+    color: #282828;
+    text-align: center;
+}    
+.imgBG{
+    background-color: #0a53be1a;
+    border-radius: 15px;
+    border: 4px solid #0a53be6b;
+    width: 7rem;
+    box-shadow: 0px 3px 7px 0px #b4b4b4;
+}
+.align{
+    text-align: center;
+    color: #00305a;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.space{
+    padding-left: 11%;
+    padding-right: 11%;
+    padding-top: 2%;
+}
+.pr-number{
+    font-weight: 500;
+
+}
+.pr-number span{
+    color: #004c8f;
+}
+#linkModal .modal-header {
+    border-bottom: 0!important;
+    padding-bottom: 0px !important;
+}
+#linkModal .modal-footer {
+    border-top: 0 !important;
+}
+#linkModal .submit-btn{
+    padding: 8px 25px;
+    background-color: #004c8f;
+    border-radius: 30px;
+}
+#linkModal .submit-btn.back{
+    background-color: transparent !important;
+    border-color: #004c8f;
+    color: #004c8f;
+}
+
+@media screen and (max-width:767px){
+
+    .imgBG{
+        width: 80%;
+        height: auto;
+    }
+
+    .space {
+        padding-top: 2%;
+        justify-content: center;
+        padding: 0;
+    }
+
+
+}
+.form-floating>label{
+    padding: 1rem 0.75rem;
+}
+
+.card_layout {
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 0px 15px!important;
+}
+.head-title {
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 10px 10px 0px 0px;
+    background: #ffffff;
+    color: #004c8f;
+    margin-bottom: 0px;
+}
+.custompaneltitle {
+    display: block;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    text-decoration: none;
+}
+.pr-detail{
+    text-align: center;    
+}
+.pr-detail h5{
+    font-size: 18px;
+    color: #004c8f;  
+    margin-top: 10px;  
+}
+.pr-detail p{
+    font-size: 30px;
+    color: #292828;   
+    font-weight: 600; 
+}
+.card {
+    width: -webkit-fill-available;
+}

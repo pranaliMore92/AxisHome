@@ -1,0 +1,60 @@
+<div class="cmnbox" [ngClass]="{'d-block': !isShow,'d-none': isShow}" [formGroup]="propertyTypeForm">
+    <h3>Select Property Type
+        <a href="javascript:void(0)" class="info no-underline" #tooltip="matTooltip"
+            matTooltip="{{this.propertyTypeForm.value.propType=='owned'?ownedTooltip.ToolTip:rentedTooltip.ToolTip}}"
+            [matTooltipPosition]="'below'" TooltipTouchGestures='"on"' matTooltipClass="example-tooltip-red"
+            aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+            (click)="tooltip.toggle()"></a>
+    </h3>
+    <div class="innerdiv">
+        <div class="cstmdiv">
+            <ul class="iconradio">
+                <li>
+                    <input type="radio" id="propType-owned" name="propType" value="owned"
+                        formControlName="propType" (click)="Ownedproperty('owned')">
+                    <label for="propType-owned" class="propertyTypeLabel">
+                        <img src="assets/image/owned.png" alt="icon">
+                        Owned
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" id="propType-rented" name="propType" value="rented" formControlName="propType" (click)="Ownedproperty('rented')">
+                    <label for="propType-rented" class="propertyTypeLabel">
+                        <img src="assets/image/rented.png" alt="icon">
+                        Rented
+                    </label>
+                </li>
+            </ul>
+            <div class="row row d-flex justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-3 col-6 form-group">
+                    <div class="input-field">
+                        <!-- <label for="txtPincode">Your Location Pincode</label> -->
+                        <input type="tel" id="txtPincode" class="form-control text-center" maxlength="6"
+                            placeholder="Enter Risk Pincode" formControlName="house_pincode"
+                            (input)="getStateCityByPin($event.target.value)">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-6 form-group">
+                    <button type="button" class="cstmbtn small mt-3 mt-sm-4"
+                        (click)="submitPropertyType()">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cmnbox2" [ngClass]="{'d-block': isShow,'d-none': !isShow}">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Property / Pincode</strong>
+                    <span>{{formValues.propType | titlecase}} / {{formValues.house_pincode}}</span>
+                </td>
+                <td>
+                    <a title="Edit" (click)="editPropertyType()" class="edit"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

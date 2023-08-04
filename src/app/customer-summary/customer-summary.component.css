@@ -1,0 +1,574 @@
+.modifyDate {
+    height: 44px;
+    border-radius: 25px !important;
+    padding-left: 15px;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    background-color: white;
+}
+
+.mat-form-field-flex {
+    border-radius: 14px;
+    border: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+::ng-deep .mat-datepicker-content .mat-calendar {
+    width: 229px !important;
+    height: 300px !important;
+}
+
+.mat-datepicker-content .mat-calendar-next-button,
+.mat-datepicker-content .mat-calendar-previous-button,
+.mat-datepicker-toggle {
+    color: rgba(0, 0, 0, .54);
+    position: absolute;
+    /* right: 10%; */
+    /* top: 0%; */
+}
+
+.mat-calendar-header {
+    padding: 0px 8px 0 8px;
+    background: #9f301e;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.mat-calendar-arrow {
+    border-top-color: rgb(255, 255, 255);
+}
+
+.summary-detail {
+    margin-bottom: 15px;
+}
+
+.ChannelDiv{
+    margin-top:10px;
+}
+.prelabel{
+    font-size: 58px;
+}
+@media only screen and (min-width: 991px) {
+    body,
+    html {
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+    }
+   
+}
+
+/* manual insurer selection */
+
+.suggestion {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.suggestion li {
+    margin-bottom: 8px;
+}
+
+.suggestion li a {
+    text-decoration: none;
+    /*color: #4b4b4b;*/
+    font-size: 12px;
+}
+
+.suggestion li a:hover {
+    color: #4b4b4b;
+}
+
+.suggest-div {
+    position: relative;
+    width: 100%;
+    float: left;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+    padding: 5px;
+    margin-top: 10px;
+}
+.panel-body h4.color-orange{
+    font-size: 19px;
+}
+.prop .panel-default>.panel-heading+.panel-collapse>.panel-body{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+h4.panel-title{
+    margin-bottom: 0px;
+}
+.prop .panel-default {
+    border: 0px solid #ccc;
+    box-shadow: none;
+    border-radius: 20px!important;
+}
+.prop .panel-default>.panel-heading+.panel-collapse>.panel-body {
+ 
+    border-radius: 0px 0px 20px 20px;
+}
+.panel-collapse.collapse{
+    border-radius: 0px 0px 20px 20px;
+}
+.accord .panel-default>.panel-heading {
+    border-radius: 20px 20px 0px 0px;
+    color: #004c8f;
+    background: #ffffff;
+    padding-bottom: 0px;
+    font-size: 20px;
+}
+.accord .panel-title>a, .panel-title>a:active {
+    color: #004c8f;
+    border-radius: 10px;
+    padding-bottom: 0px;
+    font-size: 19px;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+.subhead-title{
+    color: #004c8f;
+    border-radius: 10px;
+    padding-bottom: 0px;
+    font-size: 19px;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    font-weight: 600;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+.accord .panel-heading a:before{
+    display: none;
+}
+.prop .form-group {
+    margin-bottom: 20px;
+}
+.matCustomCalicon {
+    top: 0px;
+}
+@media only screen and (max-width: 767px) {
+    .suggest-div {
+        float: none;
+    }
+      .pd20 {
+        margin-top: 0px!important;
+    }
+}
+@media only screen and (max-width: 991px){
+    .pd20 {
+        margin-top: 15px;
+    }
+}
+
+.col-md-15{
+    width: 20%;
+    float: left;
+}
+.panel-collapse.collapse{
+    background-color: #ffffff;
+}
+
+/* summary css end */
+
+@media only screen and (min-width: 991px) {
+    body,
+    html {
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+    }
+}
+
+.bg-off {
+    background-color: #f7f7f7 !important;
+}
+
+.tbl50 {
+    width: 50%;
+}
+
+.visiblebr {
+    display: none;
+}
+.card_layout {
+    border: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 0px 15px!important;
+}
+.head-title {
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 10px 10px 0px 0px;
+    background: #ffffff;
+    color: #004c8f;
+    margin-bottom: 0px;
+}
+.custompaneltitle {
+    display: block;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    text-decoration: none;
+}
+.pr-detail{
+    text-align: center;    
+}
+.pr-detail h5{
+    font-size: 18px;
+    color: #004c8f;  
+    margin-top: 10px;  
+}
+.pr-detail p{
+    font-size: 30px;
+    color: #292828;   
+    font-weight: 600; 
+}
+.terms-div{
+    padding: 15px 8px!important;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.terms-cont{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+}
+@media only screen and (max-width:767px) {
+    .visiblebr {
+        display: block !important;
+    }
+    .plr-mob20 {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 10px;
+    }
+    .accord .panel-title > a, .panel-title > a:active {
+      
+        font-size: 22px;
+        padding-left: 15px;
+    }
+    .panel-body h4.color-orange {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+    .custompaneltitle {
+        font-size: 22px;
+    }
+}
+
+.viewbreakup {
+    font-size: 14px;
+    font-weight: bold !important;
+}
+
+.trans-btn {
+    color: #131313;
+}
+
+.myfixebtn {
+    margin-right: 1%;
+}
+.panel-title{
+    margin-bottom: 0px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 5px 15px;
+}
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 680px;
+}
+}
+@media only screen and (max-width: 991px){
+    .plr-mob20{
+        margin-top: 30px;
+    }
+}
+.accord .form-group input{
+    cursor: not-allowed;
+   }
+
+.fa-minus1::before{
+    content: "\00A0";
+}
+.text-justify{
+    text-align: justify;
+}
+#terms_condition .close{
+    font-size: 28px;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: #ffffff;
+    box-shadow: unset;
+  }
+  .accordion-button:focus {
+    z-index: 3;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: unset;
+  }
+  .prop-div .accordion-item {
+    background-color: #fff;
+    border: unset;
+    border-radius: 20px!important;
+  }
+  .prop-div .accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 20px!important;
+  }
+  .prop-div .accordion-item:first-of-type .accordion-button {
+    border-radius: 20px!important;
+  }
+  
+  .prop-div .accordion-button {
+    padding: 12px 40px;
+    display: flex;
+    font-size: 20px;
+    color: #004c8f!important;
+    text-align: left;
+    font-weight: 400;
+  }
+  .prop-div .accordion-body {
+    padding: 15px 40px;
+   padding-top: 5px;
+  }
+  
+  .prop-div .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #00305a;
+    background-color: #fff;
+    border: 0;
+    border-bottom: 2px solid red;
+  }
+  .nav-tabs .nav-link{
+    color: #00305a;
+  }
+  .prop-div .nav-tabs .nav-link {
+    border-left: unset; 
+    border-top: unset; 
+    border-right: unset; 
+  }
+  .prop-div .nav-link {
+    color: #ccc;
+  }
+  /* .form-select{
+    font-size: 14px
+  } */
+  .prop-div .nav-tabs {
+    border-bottom: 2px solid #e8e8e8;
+    margin-bottom: 10px;
+  }
+  .prop-div .nav-tabs .nav-link {
+    margin-bottom: -2px;
+    text-transform: capitalize;
+  }
+  .prop-div .tab-content .container {
+    padding: 0px;
+  }
+  .form-select:focus {
+    box-shadow: none;
+  }
+  .text-bb {
+    font-size: 18px;
+    font-weight: 400;
+    color: #004c8f;
+  }
+  .prop-div .form-switch .form-check-input{
+     width: 4em;
+      height: 2em;
+  }
+  .prop-div .form-switch {
+    float: right;
+  }
+  .prop-div .form-check-input:checked {
+    background-color: #004c8f;
+    border-color: #004c8f;
+  }
+  .prop-div .form-check-input:focus {
+    box-shadow: unset;
+  }
+  
+  #myModal .modal-dialog {
+      max-width: 800px;
+      margin: 1.75rem auto;
+  }
+  .modal-cb {
+    float: left; 
+    margin-top: 5px;
+  }
+  .modal-cb-content {
+  margin-left: 25px;
+      padding-bottom: 3%;
+  }
+  
+  #myModal .modal-title {
+    font-weight: 300;
+  }
+  
+  #myModal .modal-body {
+    height: 60vh;
+      overflow-y: scroll;
+      padding-top: 0;
+  }
+  #myModal .modal-header{
+    border-bottom: unset;
+  }
+  .cancel-btn {
+    min-width: 112px;
+      padding: 14px 2px;
+      border: 0;
+      border-radius: 50px;
+      display: inline-block;
+      background-color: #e5e5e5;
+      color: #004c8f;
+      outline: 0 !important;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 3px 6px 0 rgb(158 158 158 / 69%);
+  }
+  
+  .cancel-btn:hover {
+    color: #004c8f;
+  }
+  
+  .proceed-btn {
+    min-width: 112px;
+      padding: 14px 2px;
+      border: 0;
+      margin-left: 1%;
+      border-radius: 50px;
+      display: inline-block;
+      background-color: #004c8f;
+      color: #fff;
+      outline: 0 !important;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 3px 6px 0 rgb(158 158 158 / 69%);
+  }
+  
+  .proceed-btn:hover {
+    color: #fff;
+  }
+  
+  /* checkbox css */
+  /* The container */
+  .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    border-radius: 3px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border: 1px solid #5e5e5e;
+    transition: .5s all;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: rgb(224, 224, 224);
+    
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #004c8f;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /* Ends here */
+  .table .form-group.mb-0{
+    margin-bottom: .8rem!important;
+  }
+  .form-group+.form-group{
+    margin-top: 0px;
+  }
+  /*mobile responsive code*/
+  
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+    .prop-div .accordion-button {
+      padding: 10px 20px;
+      display: flex;
+      font-size: 18px;
+      color: #004c8f!important;
+      text-align: left;
+      font-weight: 400;
+    }
+    .prop-div .accordion-body {
+      padding: 15px 20px;
+    }
+    .submit-btn {
+      padding: 8px 25px;
+    }
+  
+  }
+
+  .terms{
+    max-height: 700px;
+    overflow: auto;
+  }
+  ::ng-deep .mat-tooltip {
+    color: #f8f8f8 !important;
+    background-color: #292929 !important;
+    font: 500 14px "Muli", sans-serif !important;
+  }
+  .personal_accident_check{
+    border: 2px solid #007bff;
+    width: 100%;
+    text-align: center;
+  }

@@ -1,0 +1,5 @@
+::ng-deep .mat-tooltip {
+    color: #f8f8f8 !important;
+    background-color: #292929 !important;
+    font: 500 14px "Muli", sans-serif !important;
+  }

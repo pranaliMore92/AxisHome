@@ -1,0 +1,244 @@
+<!-- <section class="vehicleno_box pd50">
+    <div class="myBoxParent">
+        <div class="bg-white text-center pdtb50 box-shadow myBox" style="height: fit-content;padding-left: 10px;padding-right: 10px;">
+            <h6>
+                <small class="headertitle">Transaction Details</small>
+            </h6>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                    <h4>Transaction Amount</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>&#8377; {{finalPremium}} </h4>
+                </div>
+            </div>
+            <div class="row">
+                <h6>
+                    <small class="headertitle">Policy Details</small>
+                </h6>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                    <h4>Proposal Number</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>{{PfProposalNo}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                    <h4>Policy Number</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>{{PolicyId}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                    <h4>Policy Start Date</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>{{policyInceptionDate}}</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                    <h4>Policy End Date</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>{{policyEndDate}}</h4>
+                </div>
+            </div>
+            <h6>
+                <small class="headertitle"> Your Policy has been put into Break-in</small>
+            </h6>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Your Breakin id is : {{brkId}} </h3>
+                    <h5 [innerHTML]="Breakinmessage"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+ -->
+
+ 
+
+  <section class="container maindiv" id="PaymentSuccessDiv">
+    <div class="row">
+        <div class="container" style="margin-top:1%;">
+            <fieldset>
+                <h2 style="color: #fff;">
+                   
+                </h2>
+                <div class="selectedPlan" style="width: 100%;">
+                    <h4>Congratulations!</h4>
+                <div class="container">
+                    <div class="row" *ngIf="IsGPA=='true'">
+                      <div class="col-md-12 text-center" style="margin-top: 20px;">
+                        <h3 class="mb-4" style="color:#013366; "><b>Policy Details</b></h3>
+                      </div>
+                      <div class="col-md-12 row justify-content-center">
+                        <div class="col-md-3 col-xs-12 col-sm-6 text-center divbtm" *ngIf="gpaPolicyNum.PFPolicyNo!=''">
+                          <span><b>Policy Number</b></span><br>
+                          <span style="color: #004c8f;">{{gpaPolicyNum.PFPolicyNo}}</span>
+                        </div>
+                        <div class="col-md-2 col-xs-12 col-sm-6 text-center divbtm">
+                          <span><b>Proposal Number</b></span><br>
+                          <span style="color: #004c8f;">{{gpaPolicyNum.PFProposalNo}}</span>
+                        </div>
+                        <div class="col-md-2 col-xs-12 col-sm-6 text-center divbtm">
+                          <span><b>Policy Start Date</b></span><br>
+                          <span style="color: #004c8f;">{{gpaPolicyNum.PolicyStartDate}}</span>
+                        </div>
+                        <div class="col-md-2 col-xs-12 col-sm-6 text-center divbtm">
+                          <span><b>Policy End Date</b></span><br>
+                          <span style="color: #004c8f;">{{gpaPolicyNum.PolicyEndDate}}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="row" *ngIf="IsPPAP=='true'">
+                      <div class="col-md-12 text-center" style="margin-top: 20px;">
+                        <h3 style="color:#013366; "><b>PPAP Policy </b></h3>
+                      </div>
+                      <div class="col-md-12">
+                        
+                        <div class="col-md-3 col-xs-6 col-sm-6 text-center">
+                          <span>Policy Number</span><br>
+                          <span style="color: #ef7d00;">{{ppapPolicyNum.PolicyNumber}}</span>
+                        </div>
+                        <div class="col-md-3 col-xs-6 col-sm-6 text-center">
+                          <span>Praposal Number</span><br>
+                          <span style="color: #ef7d00;">{{ppapPolicyNum.PFProposalNo}}</span>
+                        </div>
+                        <div class="col-md-3 col-xs-6 col-sm-6 text-center">
+                          <span>Policy Start Date</span><br>
+                          <span style="color: #ef7d00;">{{ppapPolicyNum.PolicyStartDate}}</span>
+                        </div>
+                        <div class="col-md-3 col-xs-6 col-sm-6 text-center">
+                          <span>Policy End Date</span><br>
+                          <span style="color: #ef7d00;">{{ppapPolicyNum.PolicyEndDate}}</span>
+                        </div>
+                        <div class="col-md-1 text-center">
+                          <button type="button"class="btn btn-round"(click)="downloadPdf('PPAP')"><i class="fa fa-download" aria-hidden="true"></i> Download PDF
+                          </button>
+                        </div>
+                      </div>
+
+                         
+                    </div> -->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center pb-3" style="margin-top: 2%;margin-bottom:1%;">
+                      <button *ngIf="gpaPolicyNum.PFPolicyNo!=''" type="button"class="btn btn-round m-2"(click)="downloadPdf()"><i class="fa fa-download" aria-hidden="true"></i> Download PDF
+                      </button>
+                      <button type="button"class="btn btn-round homebtn"(click)="goToHome()"><i class="fa fa-home" aria-hidden="true"></i> Home
+                      </button>
+                  </div>
+
+                    <!-- <div class="col-lg-3 col-md-3 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                          <h2 style="color:black;">Two-Wheeler Policy Number
+                          </h2>
+                          <span style="color: #ef7d00;">{{paymentConfRes.PolicyNumber}}
+                          </span>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                        <h2 style="color:black;"> Praposal Number
+                        </h2>
+                        <span style="color: #ef7d00;">{{paymentConfRes.PFProposalNo}}
+                        </span>
+                      </div>
+                      
+                      <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                          <h2 style="color:black;">Policy Start Date
+                          </h2>
+                          <span style="color: #ef7d00;">{{paymentConfRes.PolicyStartDate}}
+                          </span>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                          <h2 style="color:black;">Policy End Date
+                          </h2>
+                          <span style="color: #ef7d00;">{{paymentConfRes.PolicyEndDate}}
+                          </span>
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                        <button type="button"class="cstmbtn btn btn-round"(click)="DownloadPdf()">Download PDF
+                        </button>
+                      </div> -->
+                    <!-- <div class="row">
+                      
+                      <div class="col-lg-3 col-md-3 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                        <h2 style="color:black;">GPA Policy Number
+                        </h2>
+                        <span style="color: #ef7d00;">{{gpaPolicyNum}}
+                        </span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                      <h2 style="color:black;"> Praposal Number
+                      </h2>
+                      <span style="color: #ef7d00;">{{paymentConfRes.PFProposalNo}}
+                      </span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                        <h2 style="color:black;">Policy Start Date
+                        </h2>
+                        <span style="color: #ef7d00;">{{paymentConfRes.PolicyStartDate}}
+                        </span>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                        <h2 style="color:black;">Policy End Date
+                        </h2>
+                        <span style="color: #ef7d00;">{{paymentConfRes.PolicyEndDate}}
+                        </span>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                      <button type="button"class="cstmbtn btn btn-round"(click)="DownloadPdf()">Download PDF
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                      <h2 style="color:black;">PPAP Policy Number
+                      </h2>
+                      <span style="color: #ef7d00;">{{ppapPolicyNum}}
+                      </span>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                    <h2 style="color:black;"> Praposal Number
+                    </h2>
+                    <span style="color: #ef7d00;">{{paymentConfRes.PFProposalNo}}
+                    </span>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                      <h2 style="color:black;">Policy Start Date
+                      </h2>
+                      <span style="color: #ef7d00;">{{paymentConfRes.PolicyStartDate}}
+                      </span>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                      <h2 style="color:black;">Policy End Date
+                      </h2>
+                      <span style="color: #ef7d00;">{{paymentConfRes.PolicyEndDate}}
+                      </span>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-6" style="margin-top: 2%;margin-bottom: 1%;text-align: left;">
+                    <button type="button"class="cstmbtn btn btn-round"(click)="DownloadPdf()">Download PDF
+                    </button>
+                  </div>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center" style="margin-top: 2%;margin-bottom:1%;">
+                      <button type="button"class="btn btn-round homebtn"(click)="Home()">Home
+                      </button>
+                  </div>-->
+                </div> 
+
+
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</section>
+  

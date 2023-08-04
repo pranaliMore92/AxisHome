@@ -1,0 +1,3 @@
+.border-btm.input-field.focused::after {
+    width: 90%;
+  }

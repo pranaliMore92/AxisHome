@@ -1,0 +1,159 @@
+export class PPAPSaveEditPraposalRequest
+{
+    UserType:string;
+   ipaddress:string;
+   ProductType:string;
+   SubProductType:string;
+   QuoteId:Number;
+   PfQuoteId:string;
+   ProposalDate:string;
+   GSTApplicable:Boolean;
+   UINApplicable:Boolean;
+   CustomerID:Number;
+   PfCustomerId:string;
+   SumInsured:string;
+   CustomerGSTDetails:PPAPCustomerGSTDetails;
+   Members:PPAPMembers[];
+   NomineeName:string;
+   NomineeTitleID:string;
+   NomineeRelationShipID:string;
+   NomineeRelationShipText:string;
+   NomineeDOB:string;
+   HUF:string;
+   isAppointeeRequired:Boolean;
+   AppointeeLastName:string;
+   AppointeeTitleID:Number;
+   AppointeeRelationShipID:Number;
+   AppointeeRelationShip:string;
+   AppointeeDOB:string;
+   Product24:string;
+   SaveProposal:Boolean;
+   IsOtherLoadingDiscount:Boolean;
+   OtherLoadingDiscountPercentage:string;
+   IsProposalStored:Boolean;
+   insuranceCompanyFullName:string;
+   AddressChange:true;
+   OccupationID:string;
+   OccupationDesc:string;
+   IDProofID:Number;
+   IDProofValue:string;
+   AadharEKYCYesNo:string;
+   Title:string;
+   InsuredID:string;
+   CustomerTitle:string;
+   CustomerName:string;
+   Address1:string;
+   Address2:string;
+   Landmark:string;
+   StateID:string;
+   CityID:string;
+   PincodeID:string;
+   PermanentAddrLine1:string;
+   PermanentAddrLine2:string;
+   PermanentAddrLandmark:string;
+   PermanentAddrStateID:string;
+   PermanentAddrCityID:string;
+   PermanentAddrPincodeID:string;
+   Mobile:string;
+   LandLineNo:string;
+   STD:string;
+   Email:string;
+   FinancierBranch:string;
+   FinancierName:string;
+   PaymentMode:string;
+   CardType:string;
+   ModeID:string;
+   CardHolderName:string;
+   CardNumber:string;
+   CVVNumber:string;
+   CardExpiryMonth:string;
+   CardExpiryYear:string;
+   PANNumber:string;
+   AadhaarNumber:string;
+   CustomerDOB:string;
+   MaritalStatus:string;
+   AnnualIncome:string;
+   HobbyID:string;
+   AlternateEMail:string;
+   AlternateMobile:string;
+   SourcingCode:string;
+   SaveType:string;
+   SpDetails:SpDetails;
+   
+}
+
+export class PPAPCustomerGSTDetails{
+    GSTIN_NO:string;
+    CONSTITUTION_OF_BUSINESS:string;
+    CONSTITUTION_OF_BUSINESS_TEXT:string;
+    CUSTOMER_TYPE:string;
+    CUSTOMER_TYPE_TEXT:string;
+    PAN_NO:string;
+    GST_REGISTRATION_STATUS:string;
+    GST_REGISTRATION_STATUS_TEXT:string;
+}
+
+export class PPAPMembers
+    {
+       Title:string;
+       Name:string;
+       Gender:string;
+       RelationshipID:string;
+       RelationshipName:string;
+       PanNumber:string;
+       DOB:string;
+       IsOtherPolicy:Boolean;
+       InsuranceCompany:string;
+       OtherPolicyNo:string;
+       PolicyValidFrom:Number;
+       PolicyValidTill:Number;
+       ClaimsMade:Boolean;
+       KidAdultType:string;
+       FirstName:string;
+       MiddleName:string;
+       LastName:string;
+       Height:string;
+       Weight:string;
+       SumInsured:string
+    }
+
+    export class SpDetails{
+        AlternateRMCode:string="";
+        AlternateRMName:string="";
+        CustomerReferenceNumber:string="";
+        ChannelName:string="";
+        PrimaryRMCode:string="";
+        SecondaryRMCode:string="";
+        BancaField01:string="";
+        BancaField02:string="";
+        BancaField03:string=""
+     }
+
+export class PPAPSaveEditPraposalResponse{
+    policyDetails:policyDetails;
+     StatusCode:string;
+     StatusMsg:string;
+     StatusDesc:string;
+     ErrorText:string;
+}
+
+export class policyDetails{
+    PolicyID:string;
+    EPolicyID:string;
+    ProposalNumber:string;
+    PfProposalNumber:string;
+    CustomerId:string;
+    PfCustomerId:string;
+    PolicySubType:string;
+    PolicyType:string;
+    PolicyStartDate:string;
+    PolicyEndDate:string;
+    Tenure:string;
+    PolicyStatus:string;
+    QuoteId:string;
+    PfQuoteId:string;
+    BasicPremium:string;
+    TotalTax:string;
+    TotalPremium:string; 
+ };
+ 

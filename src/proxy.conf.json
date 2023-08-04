@@ -1,0 +1,8 @@
+{
+    "/ILServices/*": {
+        "target": "https://app9.icicilombard.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

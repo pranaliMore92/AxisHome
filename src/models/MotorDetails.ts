@@ -1,0 +1,30 @@
+export class MotorDetailsResponse {
+    Title: string;
+    CustomerName: string;
+    MobileNumber: string;
+    Email: string;
+    DOB: string;
+    RegNumber: string;
+    VahicleClassType: string;
+    VehicleClassPFCode: string;
+    Make: string;
+    MakePFCode: string;
+    Model: string;
+    ModelPFCode: string;
+    RTO: string;
+    RTOPFCode: string;
+    RegDate: string;
+    EngineNumber: string;
+    ChassisNumber: string;
+    Address: string;
+    PinCode: string;
+    StatusCode: string;
+    StatusMsg: string;
+    StatusDesc: string;
+    Premium: string;
+    BitlyURL:string;
+    LongURL:string;
+    DealID:string;
+    PreviousInsurerCompany: string;
+    PreviousPolicyNo: string;
+}

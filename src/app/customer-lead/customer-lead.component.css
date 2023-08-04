@@ -1,0 +1,99 @@
+.divcen{
+    margin: 0 auto;
+}
+.cover-1 {
+    width: 100%;
+    margin: 45px 0 5px;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.cover-1 .mem_cover {
+    /* width: 235px; */
+    font: 400 20px "Muli", sans-serif;
+    color: #004c8f;
+  }
+  
+.cover-1 .switch_txt {
+    font: 300 20px/1.25px "Muli", sans-serif;
+    color: #282828;
+    position: relative;
+    top: 1px;
+    padding-left: 10px;
+  }
+  
+.cover-1 .switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 24px;
+  }
+  
+.cover-1 .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+.cover-1 .switch input:checked + .slider {
+    background-color: #004c8f;
+  }
+  
+.cover-1 .switch input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+.cover-1 .switch input:focus + .slider {
+    box-shadow: 0 0 1px 0 #2196f3;
+    -webkit-box-shadow: 0 0 1px 0 #2196f3;
+    -moz-box-shadow: 0 0 1px 0 #2196f3;
+  }
+  
+.cover-1 .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    border-radius: 34px;
+    -webkit-border-radius: 34px;
+    -moz-border-radius: 34px;
+  }
+  
+.cover-1 .switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2.2px;
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.26);
+  }
+.personal-cover-enabled {
+    color: #004c8f;
+    padding-left: 0px;
+    font-size: 20px;
+}
+.personal-cover i{
+    color: #25d366;
+}
+.input-field::after {
+  visibility: hidden !important;
+}

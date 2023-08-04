@@ -1,0 +1,116 @@
+<!-- <section class="vehicleno_box container pdt0">
+    <div class="myBoxParent">
+        <div class="bg-white text-center pdtb30 myBox ">
+            <div class="col-lg-12 mt10mac">
+                <h3 class=" bigTtitle">
+                    Lead Details
+                </h3>
+                <div class="form ">
+                    <div class="row mob-m-0">
+                        <div class="plr-mob0 padtp10 text-left col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <input id="txtRMCode" placeholder="Referral Code *" [(ngModel)]="RMCode" maxlength="10"
+                                    class="form-control" type="text" autocomplete="off">
+                       
+                            </div>
+                        </div>
+                        <div class="plr-mob0 padtp10 text-left col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <input id="txtRMCode" placeholder="CRM Lead *" [(ngModel)]="CRMLead" maxlength="10"
+                                    class="form-control" type="text" autocomplete="off">
+                            
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 plr-mob0 padtp10 text-left">
+                            <div class="form-group mgt0">
+                                <select id="ddChannel" [(ngModel)]="ChannelSelected"
+                                    class="form-control form-select font16">
+                                    <option value="">Select Channel</option>
+                                    <option value="BBG">KRG AXIS BBG</option>
+                                    <option value="SME">MEDIUM ENTERPRISES GROUP</option>
+                                    <option value="SME">BHARAT BANK</option>
+                                    <option value="SME">CORPORATE BANKING GROUP</option>
+                                    <option value="SME">SMALL BUSINESS BANKING</option>
+                                    <option value="SME">MERCHANT ACQUIRING BUSINESS</option>
+                                    <option value="SME">MID CORPORATE BUSINESS</option>
+                                </select>
+                          
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="col-lg-12">
+                <button type="button" id="btnGetQuote" (click)="Proceed()"
+                    class="quote-btn btn-boxshadow btn btn-primary btn-dash bg-blue noborder">
+                    Proceed
+                </button>
+            </div>
+            <div class="clearfix "></div>
+        </div>
+    </div>
+</section> -->
+
+<section class="container-fluid mainsec">
+    <div class="row">
+        <div class="container">
+            <div class="cmnbox mt-5">
+                <h3>Lead Details</h3>
+                <div class="innerdiv">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <div class="input-field">
+                                <label for="ChannelSelected">Channel Name <sup>*</sup></label>
+                                <input id="ChannelSelected" [(ngModel)]="ChannelSelectedd"  class="form-control" disabled
+                                    type="text" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-field">
+                                <label for="txtRMCode">Referral Code <sup>*</sup></label>
+                                <input id="txtRMCode" [(ngModel)]="RMCode" maxlength="10" class="form-control" disabled
+                                    type="text" autocomplete="off">
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-field">
+                                <label for="txtCRMCode">CRM Lead <sup>*</sup></label>
+                                <input id="txtCRMCode" [(ngModel)]="CRMLead" maxlength="10" class="form-control" disabled
+                                    type="text" autocomplete="off">
+                            </div>
+                        </div>
+
+                       
+                        <!-- <div class="form-group col-md-4">
+                            <div class="input-field">
+                                <label for="txtChannel">Channel <sup>*</sup></label>
+                                <select id="txtChannel" [(ngModel)]="ChannelSelected"
+                                    class="form-control form-select font16">
+                                    <option value="">Select Channel</option>
+                                    <option value="BBG">KRG AXIS BBG</option>
+                                    <option value="SME">MEDIUM ENTERPRISES GROUP</option>
+                                    <option value="SME">BHARAT BANK</option>
+                                    <option value="SME">CORPORATE BANKING GROUP</option>
+                                    <option value="SME">SMALL BUSINESS BANKING</option>
+                                    <option value="SME">MERCHANT ACQUIRING BUSINESS</option>
+                                    <option value="SME">MID CORPORATE BUSINESS</option>
+                                </select>
+                            </div>
+
+                        </div> -->
+                        <div class="col-12 text-center">
+                            <button type="button" (click)="Proceed()" class="cstmbtn my-3 mt-sm-4">PROCEED</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,254 @@
+<div class="cmnbox" [ngClass]="{'d-block': !isShow,'d-none': isShow}" *ngIf="premiumData && premiumData.length">
+    <h3>Choose Your Plan</h3>
+    <div class="innerdiv big" >
+
+        <ngx-slick-carousel class="plansDiv" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor='let p of premiumData;let i = index;' class="slick-slide">
+                <div class="maindiv active" (click)="getSelectedPremium(p, i)">
+                    <h5 [class.h1active]="Indexselect === p?.tenure">{{p?.tenure}} Year</h5>
+                    <div class="contdiv">
+                        <small>Total Premium</small>
+                        <h6>₹ {{utility.convertStringtoCurrency(p?.totalPremium)}}</h6>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+        <!-- <ngx-slick-carousel class="plansDiv" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor='let p of premiumData;let i = index;' class="slick-slide">
+                <div class="maindiv active" (click)="getSelectedPremium(p, i)" [ngStyle]="{display:i%2!=1?'block':'none'}" >
+                    <h5 [class.h1active]="selectedIndex === i">{{i+1}} Year</h5>
+                    <div class="contdiv">
+                        <small>Total Premium</small>
+                        <h6>₹ {{utility.convertStringtoCurrency(p?.totalPremium)}}</h6>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel> -->
+        <div class="ttlpremdiv" *ngIf="selectedPlan && showpremiumdetails">
+            <span>Total Premium Payable
+                <span> ₹ {{utility.convertStringtoCurrency(selectedPlan?.totalPremium)}}</span></span>
+        </div>
+        <div class="text-center" *ngIf="showpremiumdetails">
+            <div>
+                <a (click)='showFAQ()' class="faqlnk faq-anchor">Frequently asked questions (FAQs) click here</a>
+            </div>
+            <div *ngIf="planType == 'BGR'">
+                <a class="faqlnk faq-anchor" href="./assets/pdf/bgr/PolicyWordings.pdf" download>Download Policy
+                    Wording</a>
+            </div>
+            <div>
+                <a class="faqlnk faq-anchor" href="./assets/pdf/chp/PolicyWordings.PDF" download>Download Policy
+                    Wording</a>
+            </div>
+        </div>
+        <div class="text-center mt-4" *ngIf="selectedPlan && showpremiumdetails">
+            <button type="button" class="cstmbtn" (click)="choosePlan()">PROCEED</button>
+        </div>
+    </div>
+</div>
+
+<div class="cmnbox2" [ngClass]="{'d-block': isShow,'d-none': !isShow}">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Your Plan</strong>
+                    <span>{{selectedPlan?.Tenure}} Year / Total Premium : {{selectedPlan?.premiumDetails?.TotalPremium | currency:"₹"}}</span>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" title="Edit" (click)="editPlanType()" class="edit"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="myNav1" class="overlay">
+    <div class="overlay-content">
+        <div class='modal-body-content'>
+            <div class="row maindiv2 pt-0">
+                <section class="container accordsec my-2 my-md-4">
+                    <div id="accordion">
+                        <div class="cmnbox">
+                            <h3>Frequently Asked Questions (FAQs)
+                                <button type="button" id="btnPay" class='overlay-close-btn' id="btnPay"
+                                    (click)="closeFAQ()">X</button>
+                            </h3>
+                            <div class="innerdiv pt-0" *ngIf="planType == 'BGR'">
+                                <div data-simplebar="init" id="scrollbar" class="scrollDiv pt-3">
+                                    <div class="faqdiv">
+                                        <strong>1) What is ICICI Bharat Griha Raksha?</strong>
+                                        <p>A Bharat Griha Raksha policy offers protection to the structure and contents
+                                            of the house in the event
+                                            of any physical destruction or damage incurred to the house by any
+                                            unavoidable perils. ICICI Bharat Griha Raksha
+                                            provides coverage to a house and its contents against loss or damage caused
+                                            by natural calamities
+                                            (flood, storm, landslide, etc.)</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>2) What losses does the policy cover?</strong>
+                                        <p>ICICI Bharat Griha Raksha covers losses/damage to content due to natural and
+                                            man-made calamities mentioned
+                                            below.</p>
+                                        <ul>
+                                            <li>Fire</li>
+                                            <li>Lightening</li>
+                                            <li>Explosion/Implosion</li>
+                                            <li>Aircraft Damage</li>
+                                            <li>Impact Damage</li>
+                                            <li>Riot, Strike, Malicious Damage</li>
+                                            <li>Storm, Cyclone, Typhoon, Tempest, Hurricane, Tornado, Flood and
+                                                Inundation</li>
+                                            <li>Subsidence and Landslide including Rockslide</li>
+                                            <li>Bursting and/or overflowing of water tanks, apparatus and pipes</li>
+                                            <li>Missile Testing Operations</li>
+                                            <li>Leakage from Automatic Sprinkler Installation</li>
+                                            <li>Bush Fire</li>
+                                            <li>Volcano</li>
+                                            <li>Earthquake</li>
+                                            <li>Terrorism</li>
+                                        </ul>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>3) What Does Auto escalation of 10% of sum insured every year
+                                            mean?</strong>
+                                        <p>Escalation of 10% will be applicable on base sum insured every Year</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>4) Whether Auto Escalation is valid for Annual Policy?</strong>
+                                        <p>Yes, Auto escalation is valid for Annual Policy and is calculated on pro-rata
+                                            basis</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>5) What am I to do in case of a claim?</strong>
+                                        <p>You may register your claim by calling 24 hrs call centre 1800-2666. Within
+                                            &lt;TAT&gt; working days of your claim registration, our claims officer will
+                                            contact you to guide you on the damage survey and claim procedure
+                                            thereafter.​</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>6) What are the documents required for filing a claim?</strong>
+                                        <p>The following are the basic documents required for filing a claim:</p>
+                                        <ul>
+                                            <li>Duly filled and completed Claim form</li>
+                                            <li>Policy Copy</li>
+                                            <li>Final bills of repairers</li>
+                                            <li>Fire Brigade report, FIR, Investigation report of police, if required
+                                            </li>
+                                            <li>Any other documents requested by surveyor or claims manager</li>
+                                        </ul>
+                                        <p>
+                                            Our claims officer will ensure that the claim form is sent to you once you
+                                            register your claim with our call centre.
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>7) Why is a list of damaged items not required?</strong>
+                                        <p>Insurance works on good faith. We as an insurance company trust our
+                                            customers. Therefore, the
+                                            specific and detailed listing of your contents is not always necessary when
+                                            you buy ICICI Bharat Griha Raksha
+                                            from us. However, preserving the bills helps in faster claims settlement. In
+                                            the absence of bills,
+                                            alternate evidence will be taken into consideration.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>8) Whether all the Individuals in the family can be covered under
+                                            Personal Accident cover? Is there any sum insured capping?</strong>
+                                        <p>Personal Accident Coverage is limited to Insured and its spouse. In case of
+                                            death of Insured & / its spouse (after occurrence of Insured) - 5 Lakhs per
+                                            person can be claimed from the insurance company.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>9) Will partial damage due to fire inside the flat be covered?​</strong>
+                                        <p>Yes partial and total loss both shall be covered due to an insured peril</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>10) Will the policy cover defects in a building due to electric short
+                                            circuits?​</strong>
+                                        <p>Any loss or damage due to fire due to short circuits is covered, any
+                                            electrical breakdown due to
+                                            short circuit where no fire is observed is excluded from scope of cover.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>11) If I do not possess purchase receipts of my house contents, how will
+                                            you determine its age (to calculate depreciation) and value? While the
+                                            question of age arises specifically in terms of electronics and furniture,
+                                            the question of value arises in terms of furniture, electronics and jewelry
+                                            too.​</strong>
+                                        <p>We shall appreciate the list of all items with pictures which is optional to
+                                            support your claim.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="innerdiv pt-0">
+                                <div data-simplebar="init" id="scrollbar" class="scrollDiv pt-3">
+                                    <div class="faqdiv">
+                                        <strong>1) What types of dwelling will be covered under Complete Home Protect
+                                            Policy?</strong>
+                                        <p>Fully built and operational Flats, Individual apartments, Bunglows, Row
+                                            Houses.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>2) Do we cover structure for Market value under Home Insurance?</strong>
+                                        <p>No, Structure will be covered on the basis of re-instatment value only and
+                                            customer will get the claim for re-instating or replacing the property in
+                                            case the property gets damaged/destroyed due to specified perils.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>3) What is the tenure for Structure and Contents?</strong>
+                                        <p>In this product, the customer can opt for a tenure upto 5 years.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>4) What is not covered under Structure?</strong>
+                                        <p>Kutcha Construction is not covered under the policy. Property other than RCC
+                                            Construction is also not covered under the policy.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>5) What is not covered under Contents?</strong>
+                                        <p>Portable electronics equipment's such as mobile, laptops are not covered
+                                            under the policy. Contents older than 10 years shall be excluded from scope
+                                            of cover, contents kept outside home premises, Manufacturing defects, Cash,
+                                            Pedal cycle & automobile, Plate glass(until mentioned specifically) are into
+                                            covered.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>6) What about seepage and leakage in walls when there is heavy
+                                            rains?</strong>
+                                        <p>Rainfall is not an insured peril and any damages due to rainfall will not be
+                                            covered under the policy.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>7) Is there any age limit on Home Building covered under this
+                                            product?</strong>
+                                        <p>Yes, we do not cover buildings more tha 50 years old until specified.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>8) In short circuit covered under the policy?</strong>
+                                        <p>
+                                            In case of loss or damage to structure/content of the insured premises due
+                                            to fire arising from a short curcuit is covered. However, breakdown of
+                                            equipment due to short circuit is not covered until the customer has opted
+                                            for coverage against section 3(Mechanical/Electrical breakdown).
+                                        </p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>9) What is covered under valuables?​</strong>
+                                        <p>Items such as jewellery, silverware, paintings, works of art, antique items,
+                                            curios and items of similar nature.</p>
+                                    </div>
+                                    <div class="faqdiv">
+                                        <strong>10) Is any​ section mandatory in this product for policy
+                                            issuance?</strong>
+                                        <p>Section 1 and any one other section is mandatory for policy issuance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+.status {
+    text-align: center;
+    color: #55595c;
+    font-size: 20px;
+}
+
+table td {
+    width: 50%;
+}
+.btn-round {
+    border-radius: 17px;
+    background: linear-gradient(to right, var(--theme-button1-color) 0%,var(--theme-button2-color) 100%);
+    color: white;
+}
+.card-header {
+    color: #033d44 !important;
+    background-color: #f7f7f9 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, .125) !important;
+}
+
+.card-padding {
+    padding: 20px;
+}
+
+.headertitle {
+    font-size: 26px;
+    color: #f26522;
+}
+
+.HeadTitleMargin {
+    margin-bottom: 0px !important;
+}
+
+.CollapseDivPadding {
+    padding-bottom: 0px !important;
+}
+
+.head-title {
+    margin-bottom: 15px;
+}
+
+.label-img {
+    width: 10% !important;
+    padding-left: 0px;
+    float: left;
+    position: absolute;
+    left: 20px;
+}
+
+.panel-heading {
+    padding: 10px 15px 10px 40px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .label-img {
+        width: 15% !important;
+        padding-left: 0px;
+        float: left;
+    }
+}
+
+h3{
+    margin-top: 10px;
+}
+
+.cstmbtn{
+    margin-top:25px
+}
+@media (max-width: 767px) {
+    #FranchiseeCodeDiv
+    {
+      margin-bottom: 51%;  
+    }
+    #PaymentSuccessDiv
+    {
+      margin-bottom: 48%;
+    }
+    #PaymentPageDiv
+    {
+      margin-bottom: 21%;
+    }
+  }
+  
+  
+  .selectedPlan {
+border-radius: 15px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+background-color: #fff;
+/* box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+-webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16);
+-moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16); */
+overflow: hidden;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.selectedPlan h4 {
+padding: 20px 15px;
+margin: 0;
+background: linear-gradient(to right, var(--theme-button1-color) 0%,var(--theme-button2-color) 100%);
+    padding: 20px 15px;
+background-color: #004c8f;
+color: #fff;
+font: 600 28px "Muli", sans-serif;
+text-align: center;
+}
+/* background-color: #cb5b19; #ef7d00 */
+@media (max-width: 767px) {  
+/* .selectedPlan h4 
+{    
+   padding: 15px;     
+   font-size: 20px;  
+}   */
+.container h2{     
+    font-size: 22px;   
+}  
+.selectedPlan .container h2{    
+       font-size: 15px;   
+}  
+.selectedPlan .container span{     
+    font-size: 17px;  
+}   
+}
+.selectedPlan .container h2{     
+    font-size: 15px;   
+} 
+.selectedPlan .container span{    
+    font-size: 17px;   
+}
+
+.btn-round{
+    border-radius: 17px;
+    background-color: #004c8f;
+    color: white;
+}
+
+.homebtn{
+    width: 150px;
+}
+
+.divbtm{
+    margin-bottom: 10px;
+}

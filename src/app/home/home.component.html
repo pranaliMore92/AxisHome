@@ -1,0 +1,19 @@
+<section class="container-fluid mainsec">
+    <div class="row">
+        <div class="container mt-3">
+            <!-- <h2>Standalone Residential Home Insurance</h2> -->
+            <h2>Complete Home Insurance</h2>
+            <app-property-type></app-property-type>
+            <app-insuarance-type [ngClass]="{'d-block': propInsTypeForm,'d-none': !propInsTypeForm}">
+            </app-insuarance-type>
+            <app-content-value [ngClass]="{'d-block': contentTypeForm,'d-none': !contentTypeForm}"></app-content-value>
+            <app-basic-coverage [ngClass]="{'d-block': addonCoverageForm,'d-none': !addonCoverageForm}">
+            </app-basic-coverage>
+            <app-additional-coverage [ngClass]="{'d-block': addonCoverageForm,'d-none': !addonCoverageForm}">
+            </app-additional-coverage>
+            <app-choose-plan [ngClass]="{'d-block': planDetails,'d-none': !planDetails}"></app-choose-plan>
+            <app-customer-details [ngClass]="{'d-block': customerDetailsForm,'d-none': !customerDetailsForm}">
+            </app-customer-details>
+        </div>
+    </div>
+</section>

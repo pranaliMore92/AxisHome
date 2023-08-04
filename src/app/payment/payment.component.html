@@ -1,0 +1,277 @@
+<section>
+    <div class="container">
+        <div class="row m-0">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="total-premium">
+                        <!-- <h4 class="pt-4">Total Premium Payable Summary</h4> -->
+                        <!-- <h2 class=" pt-2 pb-3">₹ {{premiumAmount}}</h2> -->
+
+                        <div class="col-md-12 p-0 card_layout pt0 ">
+                            <div class="row mb10">
+                                <div class="text-left p-0">
+                                    <div class="head-title ">
+                                        <b class="custompaneltitle">Total Premium Payable Summary</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mycard box_card  form-group covers">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 pr-detail">
+                                        <h5>Basic Premium</h5>
+                                        <p id="GPA"><i class="fa fa-inr"></i> {{GPASaveQuoteResp.basicPremium | number:'1.0-0'}}</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 pr-detail">
+                                        <h5>GST</h5>
+                                        <p id="summ_basic_premium"><i class="fa fa-inr"></i> {{GPASaveQuoteResp.totalTax |
+                                            number:'1.0-0'}}
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 pr-detail">
+                                        <h5>Total Premium Payable</h5>
+                                        <p id="summ_total_premium">
+                                            <span class="">
+                                                <i class="fa fa-inr"></i>
+                                                <!-- {{GPA}} -->
+                                                {{GPASaveQuoteResp.totalPremium | number:'1.0-0'}}
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+           
+
+            <div class="card mt-3">
+                <div class="card-body">
+
+                    <div class="row space justify-content-center">
+                        <div class="col-md-2 col-6 align" data-bs-toggle="modal" data-bs-target="#linkModal"
+                            *ngIf="flowType=='A'" (click)="ShowSendLinkPopup()">
+                            <img src="assets/image/link.png" alt="link" class="imgBG ">
+                            <p class="pt-2">Send Payment<br>Link</p>
+                        </div>
+                        <div class="col-md-2 col-6 align" *ngIf="flowType!='A'" (click)="OtherPaymentOption(1,'card')">
+                            <img src="assets/image/credit-card.png" alt="credit-card" class="imgBG">
+                            <p class="pt-2">Credit Card</p>
+                        </div>
+                        <div class="col-md-2 col-6 align" *ngIf="flowType!='A'" (click)="OtherPaymentOption(2,'card')">
+                            <img src="assets/image/debit-card.png" alt="debit-card" class="imgBG">
+                            <p class="pt-2">Debit Card</p>
+                        </div>
+                        <div class="col-md-2 col-6 align" *ngIf="flowType!='A'"
+                            (click)="OtherPaymentOption(6,'wallet')">
+                            <img src="assets/image/wallet.png" alt="wallet" class="imgBG">
+                            <p class="pt-2">E-Wallet</p>
+                        </div>
+                        <div class="col-md-2 col-6 align" *ngIf="flowType!='A'"
+                            (click)="OtherPaymentOption(3,'netbanking')">
+                            <img src="assets/image/Net-banking.png" alt="Net-banking" class="imgBG">
+                            <p class="pt-2">Net Banking</p>
+                        </div>
+                        <div class="col-md-2 col-6 align" *ngIf="flowType!='A'" (click)="OtherPaymentOption(4,'upi')">
+                            <img src="assets/image/bhim.png" alt="bhim" class="imgBG">
+                            <p class="pt-2">UPI</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="linkModal" tabindex="-1" aria-labelledby="linkModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Payment Link</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" checked name="inlineRadioOptions" id="inlineRadio1"
+                        (click)="sendViaClicked('email')">
+                    <label class="form-check-label" for="inlineRadio1">Email Id</label>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        (click)="sendViaClicked('sms')">
+                    <label class="form-check-label" for="inlineRadio2">Mobile Number</label>
+                </div>
+                <div class="row">
+                    <div class="form-floating col-lg-12 mb-2 m-number" *ngIf="this.sendVia=='E'" id="Coption1">
+                        <input type="text" class="form-control" id="emailid" placeholder="email id"
+                            [(ngModel)]="GPAUPPProposalRequest?.CustomerDetails.Email">
+                        <label for="emailid">Email Id</label>
+                    </div>
+                    <div class="form-floating col-lg-12 mb-2 m-number" *ngIf="this.sendVia=='M'" id="Coption2">
+                        <input type="text" class="form-control" id="mnumber" placeholder="Mobile"
+                            [(ngModel)]="GPAUPPProposalRequest?.CustomerDetails.MobileNumber">
+                        <label for="mnumber">Mobile Number</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary submit-btn back" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary submit-btn" (click)="sendPaymentLink()">Send Link</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <section class="bg-eb bg-off">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center price-tag color-blue">
+                <h5>Total Premium Payable</h5>
+                <h2 class="color-orange"><i class="fa fa-inr"></i> {{premiumAmount}}</h2>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<!-- <div class="modal" id="SendLinkModel" tabindex="-1" role="dialog"
+    aria-labelledby="vhNoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content modalCont">
+            <div class="modal-header">
+                <h5 class="modal-title medPayLink">Send Payment Link</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close" (click)="CloseSendLinkPopup()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <ul class="ps-0">
+                            <li class="flnone m-0 mt-1 mb-3">
+                                <span>
+                                    <input type="radio" id="mailPop"
+                                        name="yesNo"
+                                        (click)="sendViaClicked('email')"
+                                        checked>
+                                    <label for="mailPop">Email</label>
+                                </span>
+                                <span>
+                                    <input type="radio" id="mobPOP" name="yesNo"
+                                        (click)="sendViaClicked('sms')">
+                                    <label for="mobPOP">Mobile Number</label>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="input-field "
+                            *ngIf="this.sendVia=='E'">
+                            <input type="text"
+                                [(ngModel)]="GPAUPPProposalRequest?.CustomerDetails.Email"
+                                id="mobileNumberpop" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="input-field focused"
+                            *ngIf="this.sendVia=='M'">
+                            <input type="text"
+                                [(ngModel)]="GPAUPPProposalRequest?.CustomerDetails.MobileNumber"
+                                id="mobileNumberpop" class="form-control" placeholder="Mobile Number">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mb-4">
+                <button type="button" class="btnstylenew"
+                    (click)="sendPaymentLink()">Send Link</button>
+                    <button type="button" class="btnstylenew ms-2"
+                    (click)="CloseSendLinkPopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="accord">
+    <div class="wrapper center-block">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="col-md-12" *ngIf="flowType=='a'">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="ShowSendLinkPopup()">
+                                <img src="assets/image/https.png" class="wd10"> Send Payment Link
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="flowType!='a'">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="OtherPaymentOption(6,'wallet')">
+                                <img src="assets/image/wallet.png" class="wd10"> Wallet
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="flowType!='a'">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="OtherPaymentOption(1,'card')">
+                                <img src="assets/image/credit-card.png" class="wd10"> Credit Card
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="flowType!='a'">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="OtherPaymentOption(2,'card')">
+                                <img src="assets/image/credit-card.png" class="wd10"> Debit Card
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="flowType!='a'">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="OtherPaymentOption(3,'netbanking')">
+                                <img src="assets/image/file.png" class="wd10"> Netbanking
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="flowType!='a' && this.premiumAmountNumber>2999">
+                <div class="panel panel-default box-shadow mgtb-20 ">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a href="javascript:void(0)" (click)="OtherPaymentOption(4,'emi')">
+                                <img src="assets/image/credit-card.png" class="wd10"> EMI
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- <div class="fixe-footer">
+    <div class="col-md-12 text-center">
+        <a href="javascript:void(0)"><button type="button"
+                class="btn trans-btn myfixebtn btn-primary btn-dash  noborder"
+                (click)="NavigateBack()">Back</button></a>
+    </div>
+</div> -->
+<!-- <input type="hidden" id="orderId" [(ngModel)]="CommonPayResData.RazorOrderID" />
+<input type="hidden" id="publicKey" [(ngModel)]="CommonPayResData.PublicKey" />
+<input type="hidden" id="produtType" value="Motor" /> -->

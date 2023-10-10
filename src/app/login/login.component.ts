@@ -7,6 +7,7 @@ import { UtilityserviceService } from 'src/services/utilityservice.service';
 import { LoginResponseModel } from 'src/models/LoginModel';
 import { Constants_SubProductType } from 'src/services/Constants';
 import { SaveVendorRequestModel } from 'src/models/VendorModel';
+import { SPDetailsModel } from 'src/models/ProposalRequestModel';
 declare var $: any;
 @Component({
   selector: 'app-login',
@@ -28,7 +29,14 @@ export class LoginComponent implements OnInit {
 
   async ngOnInit() {
 
-    sessionStorage.clear();
+    if (!this._utilityservice.isUndefinedOrNull(this._utilityservice.getLS('AxisLeadDetails'))) {
+      let AxisLeadDetails: SPDetailsModel = new SPDetailsModel();
+      AxisLeadDetails = JSON.parse(this._utilityservice.getLS("AxisLeadDetails"));
+      sessionStorage.clear();
+      this._utilityservice.setLS('AxisLeadDetails', JSON.stringify(AxisLeadDetails));
+    } else {
+      sessionStorage.clear();
+    }
     await this._utilityservice.getPolicyPlanDetails();
     this.activeRoute.queryParams.forEach((params) => {
       console.log(params);
@@ -128,7 +136,8 @@ export class LoginComponent implements OnInit {
       }
       else {
         // this._utilityservice.setLS("SaveVendorRequest", "");
-        this._router.navigate(["leaddetails"]);
+        this._router.navigate(["getcustomerdetails"]);
+        // this._router.navigate(["leaddetails"]);
       }
 
     }

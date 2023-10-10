@@ -14,7 +14,7 @@ import { KYCResponseModel } from 'src/models/KYCResponseModel';
 import { LoginRequestModel, LoginResponseModel } from 'src/models/LoginModel';
 import { SendOTPResponseModel, VerifyOtpResponseModel } from 'src/models/OTPModel';
 import { GSTDetails } from 'src/models/PPAPSaveEditCustomerRequest';
-import { correspondingAddress, CustomerDetails, GSTINDetailsModel, ProposalRequestModel } from 'src/models/ProposalRequestModel';
+import { AxisLeadDetailsModel, correspondingAddress, CustomerDetails, GSTINDetailsModel, ProposalRequestModel, SPDetailsModel } from 'src/models/ProposalRequestModel';
 import { SavePolicyData } from 'src/models/SavePolicyData';
 import { CityList, LstNomineeRelationshipResponse, StatesModel } from 'src/models/StatesModel';
 import { usermodel } from 'src/models/usermodel';
@@ -98,6 +98,9 @@ export class CustomerDetailsComponent implements OnInit {
   Address: any;
   Chooseplan: any;
   gst: any;
+  ChannelSelected: string = "";
+  RMCode: string = "";
+  spDetails : SPDetailsModel = new SPDetailsModel()
   constructor(
     private fb: FormBuilder,
     private validationService: ValidationService,
@@ -152,8 +155,28 @@ export class CustomerDetailsComponent implements OnInit {
   // }
 
   async ngOnInit() {
+    debugger;
     this.proposalRequest.CustomerDetails = new CustomerDetails();
-
+    if (!this.utility.isUndefinedOrNull(this.utility.getLS('AxisLeadDetails'))) {
+      let AxisLeadDetails: AxisLeadDetailsModel = new AxisLeadDetailsModel();
+      AxisLeadDetails = JSON.parse(this.utility.getLS("AxisLeadDetails"));
+      this.spDetails.primaryRMCode = AxisLeadDetails.RMCode
+      this.spDetails.channelName = AxisLeadDetails.ChannelName
+      this.spDetails.secondaryRMCode = AxisLeadDetails.RMCode
+      this.spDetails.customerReferenceNumber = AxisLeadDetails.CRMLead
+    }
+  
+    // if (!this.utility.isUndefinedOrNull(this.utility.getLS('RMCode'))) {
+    //   this.spDetails.alternateRMCode = (this.utility.getLS('RMCode'))
+    // }
+    // if (!this.utility.isUndefinedOrNull(this.utility.getLS('CRMLead'))) {
+    //   this.spDetails.customerReferenceNumber = (this.utility.getLS('CRMLead'))
+    // }
+    // if (!this.utility.isUndefinedOrNull(this.utility.getLS('ChannelName'))) {
+    //   this.spDetails.channelName = (this.utility.getLS('ChannelName'))
+    // }
+   
+    // 
     if (!this.utility.isUndefinedOrNull(this.utility.getLS('userdetails'))) {
       this.userDetails = JSON.parse(this.utility.getLS('userdetails'))
       if (!this.utility.isUndefinedOrNull(this.utility.getLS('insured_details'))) {
@@ -682,10 +705,11 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
   getPincodeDetails(val: any) {
-
+   
     if (val.length === 6) {
       const body = val;
       this.api.getStateCityByPincode(body).subscribe((res: any) => {
+  
         if (res.StatusCode === 1) {
           this.cityData = res.CityList;
           this.customerDetailsForm.patchValue({ city: res.CityList[0].CityName });
@@ -718,7 +742,6 @@ export class CustomerDetailsComponent implements OnInit {
           } else {
             this.customerDetailsForm.patchValue({ communication_state: res.CityList[0].StateCode });
           }
-
         }
         else {
           this.customerDetailsForm.patchValue({ 'communication_city': null });
@@ -871,7 +894,7 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
   submitCustomerDetailsForm() {
-
+    
     if (this.utility.isUndefinedOrNull(this.utility.getLS("KYC_customerDetails"))) {
       this.getAJL();
     }
@@ -1170,6 +1193,17 @@ export class CustomerDetailsComponent implements OnInit {
         SkipDedupeLogic: false,
 
       },
+      SPDetails : {
+      alternateRMCode : "",
+      customerReferenceNumber : this.spDetails.customerReferenceNumber,
+      channelName : this.spDetails.channelName,
+      primaryRMCode : this.spDetails.primaryRMCode,
+      secondaryRMCode : this.spDetails.secondaryRMCode,
+      bancaField01 : "",
+      bancaField02 : "",
+      bancaField03 : "",
+      },
+
       GSTNO: this.customerDetailsForm.value.gst,
       //  NewProductCode: this.planDetails.formValues.Tenure > 1 ? '1015/L': '1015/A', // old code
       NewProductCode: planType ? planType == 'BGR' ? '1015/L' : planType == 'CHP' ? '4119' : '' : '',

@@ -25,13 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(public aes: AesEncryptionService, private dataSharingService: DataSharingService,
     private router: Router,
     public utility: UtilityserviceService) {
-    this.viewType = this.utility.getLS('viewType');
-    this.currentUrl = this.router.url;
-    console.log('currentUrl first ' + this.currentUrl);
-    router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.previousUrl = this.currentUrl;
-        this.currentUrl = event.url;
+   
         
         // if(this.flowtype=="A"){
         //   if (this.currentUrl === '/home') {
@@ -43,15 +37,11 @@ export class HomeComponent implements OnInit {
         //     this.dataSharingService.clearSharedData();
         //   }
         // }
-        if (this.currentUrl === '/getcustomerdetails') {
-          console.log('Previous URL is', this.previousUrl, 'thats why clearing localstorage now');
+       
           // sessionStorage.removeItem('sharedFormData');
           // sessionStorage.removeItem('customerDetails');
           // this.dataSharingService.clearSharedData();
-        }
         
-      };
-    });
   }
 
   async ngOnInit() {

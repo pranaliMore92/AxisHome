@@ -17,7 +17,6 @@ import { RazorPayFallbackComponent } from './razor-pay-fallback/razor-pay-fallba
 
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { OnlyNumericDirective } from '../directives/only-numeric.directive';
-import { LeaddetailsComponent } from './leaddetails/leaddetails.component';
 import { LoginComponent } from './login/login.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { CustomerSummaryComponent } from './customer-summary/customer-summary.component';
@@ -43,7 +42,6 @@ import { HomecustpaymentlinkComponent } from './homecustpaymentlink/homecustpaym
     RazorPayFallbackComponent,
     PaymentSuccessComponent,
     OnlyNumericDirective,
-    LeaddetailsComponent,
     LoginComponent,
     HomeButtonComponent,
     CustomerSummaryComponent,

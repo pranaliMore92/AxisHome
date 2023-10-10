@@ -142,3 +142,9 @@ export class SPDetailsModel {
     bancaField02: string;
     bancaField03: string
 }
+
+export class AxisLeadDetailsModel {
+    CRMLead: string;
+    RMCode: string;
+    ChannelName: string
+}
